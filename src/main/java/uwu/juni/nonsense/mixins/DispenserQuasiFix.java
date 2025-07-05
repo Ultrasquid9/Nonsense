@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import uwu.juni.nonsense.NonsenseConfig;
 
 @Mixin(DispenserBlock.class)
 public class DispenserQuasiFix {
@@ -25,6 +26,11 @@ public class DispenserQuasiFix {
 		boolean isMoving,
 		Operation<Void> og
 	) {
+		if (!NonsenseConfig.disableQuasiConnectivity()) {
+			og.call(state, level, pos, block, fromPos, isMoving);
+			return;
+		}
+
 		final var triggered = BlockStateProperties.TRIGGERED;
 
         var hasSignal = level.hasNeighborSignal(pos);

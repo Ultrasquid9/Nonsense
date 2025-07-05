@@ -31,7 +31,7 @@ public class Nonsense {
 
 		bussin.addListener(this::addCreative);
 
-		modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
+		modContainer.registerConfig(ModConfig.Type.COMMON, NonsenseConfig.SPEC);
 	}
 
 	// TODO - replace with more permanent creative mode tab solution

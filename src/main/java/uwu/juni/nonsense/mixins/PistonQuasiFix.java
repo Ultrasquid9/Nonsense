@@ -9,6 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.SignalGetter;
 import net.minecraft.world.level.block.piston.PistonBaseBlock;
+import uwu.juni.nonsense.NonsenseConfig;
 
 @Mixin(PistonBaseBlock.class)
 public class PistonQuasiFix {
@@ -19,6 +20,10 @@ public class PistonQuasiFix {
 		Direction facing,
 		Operation<Boolean> og
 	) {
+		if (!NonsenseConfig.disableQuasiConnectivity()) {
+			return og.call(signalGetter, pos, facing);
+		}
+
 		for (var dir : Direction.values()) {
 			if (dir != facing && signalGetter.hasSignal(pos.relative(dir), dir)) {
 				return true;
