@@ -9,7 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.SignalGetter;
 import net.minecraft.world.level.block.piston.PistonBaseBlock;
-import uwu.juni.nonsense.NonsenseConfig;
+import uwu.juni.nonsense.misc.NonsenseConfig;
 
 @Mixin(PistonBaseBlock.class)
 public class PistonQuasiFix {

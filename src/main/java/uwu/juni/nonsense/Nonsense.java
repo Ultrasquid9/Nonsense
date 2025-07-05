@@ -4,15 +4,15 @@ import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
 
-import net.minecraft.world.item.CreativeModeTabs;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.ModContainer;
-import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.nonsense.content.NonsenseBlocks;
 import uwu.juni.nonsense.content.NonsenseItems;
+import uwu.juni.nonsense.misc.NonsenseConfig;
+import uwu.juni.nonsense.misc.NonsenseCreative;
 
 @Mod(Nonsense.MODID)
 public class Nonsense {
@@ -29,15 +29,7 @@ public class Nonsense {
 			register.register(bussin);
 		}
 
-		bussin.addListener(this::addCreative);
-
+		bussin.addListener(NonsenseCreative::addToCreative);
 		modContainer.registerConfig(ModConfig.Type.COMMON, NonsenseConfig.SPEC);
-	}
-
-	// TODO - replace with more permanent creative mode tab solution
-	private void addCreative(BuildCreativeModeTabContentsEvent event) {
-		if (event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-			event.accept(NonsenseBlocks.EXAMPLE_BLOCK.asItem());
-		}
 	}
 }

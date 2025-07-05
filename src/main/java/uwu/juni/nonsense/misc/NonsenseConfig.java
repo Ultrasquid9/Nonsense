@@ -1,4 +1,4 @@
-package uwu.juni.nonsense;
+package uwu.juni.nonsense.misc;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 
@@ -9,7 +9,7 @@ public class NonsenseConfig {
 		.comment("Whether or not Quasi Connectivity should be disabled")
 		.define("disable_quasi_connectivity", true);
 
-	static final ModConfigSpec SPEC = BUILDER.build();
+	public static final ModConfigSpec SPEC = BUILDER.build();
 
 	public static boolean disableQuasiConnectivity() {
 		boolean should;

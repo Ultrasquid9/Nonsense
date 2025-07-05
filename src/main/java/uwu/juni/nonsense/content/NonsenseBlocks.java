@@ -12,6 +12,7 @@ import uwu.juni.nonsense.Nonsense;
 public class NonsenseBlocks {
 	public static final DeferredRegister.Blocks REGISTER = DeferredRegister.createBlocks(Nonsense.MODID);
 
+	// TODO - remove
 	public static final DeferredBlock<Block> EXAMPLE_BLOCK = registerBlockAndItem("example_block", () -> new Block(
 		BlockBehaviour.Properties.of().mapColor(MapColor.STONE)
 	));

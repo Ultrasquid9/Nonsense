@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.DispenserBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import uwu.juni.nonsense.NonsenseConfig;
+import uwu.juni.nonsense.misc.NonsenseConfig;
 
 @Mixin(DispenserBlock.class)
 public class DispenserQuasiFix {
