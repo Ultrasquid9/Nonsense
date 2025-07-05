@@ -20,6 +20,9 @@ out
 build
 .gradle
 
+# cache files that make PRs super annoying
+.cache
+
 # other
 eclipse
 run

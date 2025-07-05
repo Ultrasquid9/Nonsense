@@ -14,7 +14,7 @@ public class NonsenseCreative {
 	public static void addToCreative(BuildCreativeModeTabContentsEvent event) {
 		new CreativeBuilder(event)
 			.tab(CreativeModeTabs.INGREDIENTS)
-			.after(Items.NETHER_WART)
+			.after(Items.NETHERITE_INGOT)
 			.insert(NonsenseItems.COPPER_COIL);
 	}
 
