@@ -1,0 +1,19 @@
+{
+	"variants": {
+		"facing=east": {
+			"model": "nonsense:block/injector2",
+			"y": 270
+		},
+		"facing=north": {
+			"model": "nonsense:block/injector2",
+			"y": 180
+		},
+		"facing=south": {
+			"model": "nonsense:block/injector2"
+		},
+		"facing=west": {
+			"model": "nonsense:block/injector2",
+			"y": 90
+		}
+	}
+}

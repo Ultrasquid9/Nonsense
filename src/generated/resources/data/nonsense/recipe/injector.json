@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "redstone",
+	"key": {
+		"C": {
+			"item": "nonsense:copper_coil"
+		},
+		"H": {
+			"item": "minecraft:hopper"
+		},
+		"I": {
+			"item": "minecraft:copper_ingot"
+		}
+	},
+	"pattern": [
+		"CIC",
+		"CHC"
+	],
+	"result": {
+		"count": 1,
+		"id": "nonsense:injector"
+	}
+}

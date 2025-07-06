@@ -14,6 +14,7 @@ public class Datagen {
 		final var helper = event.getExistingFileHelper();
 		final var output = datagen.getPackOutput();
 
+		datagen.addProvider(event.includeClient(), new NonsenseBlockModels(output, helper));
 		datagen.addProvider(event.includeClient(), new NonsenseItemModels(output, helper));
 		datagen.addProvider(event.includeServer(), new NonsenseRecipes(output, provider));
 	}

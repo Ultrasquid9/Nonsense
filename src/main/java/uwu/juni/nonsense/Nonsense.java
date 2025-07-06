@@ -9,6 +9,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import uwu.juni.nonsense.content.NonsenseBlockEntities;
 import uwu.juni.nonsense.content.NonsenseBlocks;
 import uwu.juni.nonsense.content.NonsenseItems;
 import uwu.juni.nonsense.misc.NonsenseConfig;
@@ -20,6 +21,7 @@ public class Nonsense {
 	public static final Logger LOGGER = LogUtils.getLogger();
 
 	static final DeferredRegister<?>[] REGISTERS = {
+		NonsenseBlockEntities.REGISTER,
 		NonsenseBlocks.REGISTER,
 		NonsenseItems.REGISTER,
 	};

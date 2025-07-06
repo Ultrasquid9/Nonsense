@@ -8,11 +8,15 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+import uwu.juni.nonsense.content.NonsenseBlocks;
 import uwu.juni.nonsense.content.NonsenseItems;
 
 public class NonsenseCreative {
 	public static void addToCreative(BuildCreativeModeTabContentsEvent event) {
 		new CreativeBuilder(event)
+			.tab(CreativeModeTabs.REDSTONE_BLOCKS)
+			.after(Items.HOPPER)
+			.insert(NonsenseBlocks.INJECTOR)
 			.tab(CreativeModeTabs.INGREDIENTS)
 			.after(Items.NETHERITE_INGOT)
 			.insert(NonsenseItems.COPPER_COIL);
