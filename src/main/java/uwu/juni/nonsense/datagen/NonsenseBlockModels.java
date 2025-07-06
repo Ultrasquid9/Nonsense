@@ -17,7 +17,7 @@ public class NonsenseBlockModels extends BlockStateProvider {
 	protected void registerStatesAndModels() {
 		getVariantBuilder(NonsenseBlocks.INJECTOR.get()).forAllStates(state -> {
 			return ConfiguredModel.builder()
-				.modelFile(models().withExistingParent("injector2", this.modLoc("block/injector")))
+				.modelFile(models().getExistingFile(modLoc("block/injector")))
 				.rotationY((int)state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot())
 				.build();
 		});

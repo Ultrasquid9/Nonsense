@@ -5,6 +5,7 @@ import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import uwu.juni.nonsense.Nonsense;
+import uwu.juni.nonsense.content.NonsenseBlocks;
 import uwu.juni.nonsense.content.NonsenseItems;
 
 public class NonsenseItemModels extends ItemModelProvider {
@@ -14,7 +15,10 @@ public class NonsenseItemModels extends ItemModelProvider {
 	
 	@Override
 	protected void registerModels() {
-		basicItems(NonsenseItems.COPPER_COIL);
+		basicItems(
+			NonsenseItems.COPPER_COIL,
+			NonsenseBlocks.INJECTOR
+		);
 	}
 
 	void basicItems(ItemLike... items) {

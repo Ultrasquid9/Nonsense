@@ -1,5 +1,6 @@
 {
 	"item.nonsense.copper_coil": "Copper Coil",
+	"block.nonsense.injector": "Injector",
 	"nonsense.configuration.title": "Nonsense - Config",
 	"nonsense.configuration.section.nonsense.common.toml": "Nonsense - Config",
 	"nonsense.configuration.section.nonsense.common.toml.title": "Nonsense - Config",

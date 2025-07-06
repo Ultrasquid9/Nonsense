@@ -3,10 +3,9 @@ package uwu.juni.nonsense.content;
 import java.util.function.Supplier;
 
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.StatePredicate;
-import net.minecraft.world.level.material.MapColor;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.nonsense.Nonsense;
@@ -20,13 +19,9 @@ public class NonsenseBlocks {
 		() -> new InjectorBlock(
 			BlockBehaviour
 				.Properties
-				.of()
-				.mapColor(MapColor.COLOR_ORANGE)
-				.requiresCorrectToolForDrops()
-				.strength(3.0F, 6.0F)
+				.ofFullCopy(Blocks.COPPER_BLOCK)
 				.isViewBlocking(falsePredicate())
 				.noOcclusion()
-				.sound(SoundType.COPPER)
 		)
 	);
 
