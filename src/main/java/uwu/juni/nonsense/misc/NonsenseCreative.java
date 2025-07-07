@@ -15,6 +15,8 @@ public class NonsenseCreative {
 	public static void addToCreative(BuildCreativeModeTabContentsEvent event) {
 		new CreativeBuilder(event)
 			.tab(CreativeModeTabs.REDSTONE_BLOCKS)
+			.after(Items.TARGET)
+			.insert(NonsenseBlocks.HIGH_SPEED_CABLE)
 			.after(Items.HOPPER)
 			.insert(NonsenseBlocks.INJECTOR)
 			.tab(CreativeModeTabs.INGREDIENTS)

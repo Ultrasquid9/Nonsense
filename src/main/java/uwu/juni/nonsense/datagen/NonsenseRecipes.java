@@ -38,5 +38,15 @@ public class NonsenseRecipes extends RecipeProvider {
 			.pattern("CHC")
 			.unlockedBy(getHasName(NonsenseItems.COPPER_COIL), has(NonsenseItems.COPPER_COIL))
 			.save(output);
+		
+		ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, NonsenseBlocks.HIGH_SPEED_CABLE, 1)
+			.define('C', NonsenseItems.COPPER_COIL)
+			.define('I', Items.IRON_INGOT)
+			.define('R', Items.REPEATER)
+			.pattern("CIC")
+			.pattern("CRC")
+			.pattern("CIC")
+			.unlockedBy(getHasName(NonsenseItems.COPPER_COIL), has(NonsenseItems.COPPER_COIL))
+			.save(output);
 	}
 }

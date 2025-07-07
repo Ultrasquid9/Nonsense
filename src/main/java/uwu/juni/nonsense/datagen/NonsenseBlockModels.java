@@ -21,5 +21,36 @@ public class NonsenseBlockModels extends BlockStateProvider {
 				.rotationY((int)state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot())
 				.build();
 		});
+
+		getVariantBuilder(NonsenseBlocks.HIGH_SPEED_CABLE.get()).forAllStates(state -> {
+			boolean powered = state.getValue(BlockStateProperties.POWERED);
+			var name = !powered
+				? "high_speed_cable"
+				: "high_speed_cable_on";
+			var top = !powered
+				? "top"
+				: "top_on";
+
+			return ConfiguredModel.builder()
+				.modelFile(models()
+					.withExistingParent(name, mcLoc("cube_bottom_top"))
+					.texture("side", modLoc("block/high_speed_cable_side"))
+					.texture("bottom", modLoc("block/high_speed_cable_bottom"))
+					.texture("top", modLoc("block/high_speed_cable_" + top))
+				)
+				.rotationX(switch(state.getValue(BlockStateProperties.FACING)) {
+					case UP -> 0;
+					case DOWN -> 180;
+					default -> 90;
+				})
+				.rotationY(switch(state.getValue(BlockStateProperties.FACING)) {
+					case NORTH -> 0;
+					case SOUTH -> 180;
+					case EAST -> 90;
+					case WEST -> 270;
+					default -> 0;
+				})
+				.build();
+		});
 	}
 }

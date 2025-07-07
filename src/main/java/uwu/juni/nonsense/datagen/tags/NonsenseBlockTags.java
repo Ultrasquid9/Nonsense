@@ -26,10 +26,12 @@ public class NonsenseBlockTags extends BlockTagsProvider {
 	@Override
 	protected void addTags(Provider provider) {
 		tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
-			NonsenseBlocks.INJECTOR.get()
+			NonsenseBlocks.INJECTOR.get(),
+			NonsenseBlocks.HIGH_SPEED_CABLE.get()
 		);
 		tag(BlockTags.NEEDS_STONE_TOOL).add(
-			NonsenseBlocks.INJECTOR.get()
+			NonsenseBlocks.INJECTOR.get(),
+			NonsenseBlocks.HIGH_SPEED_CABLE.get()
 		);
 	}
 }

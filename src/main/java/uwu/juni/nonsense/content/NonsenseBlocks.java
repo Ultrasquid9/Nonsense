@@ -9,12 +9,13 @@ import net.minecraft.world.level.block.state.BlockBehaviour.StatePredicate;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.nonsense.Nonsense;
+import uwu.juni.nonsense.content.blocks.HighSpeedCableBlock;
 import uwu.juni.nonsense.content.blocks.InjectorBlock;
 
 public class NonsenseBlocks {
 	public static final DeferredRegister.Blocks REGISTER = DeferredRegister.createBlocks(Nonsense.MODID);
 
-	public static final DeferredBlock<InjectorBlock> INJECTOR = registerBlockAndItem(
+	public static final DeferredBlock<?> INJECTOR = registerBlockAndItem(
 		"injector",
 		() -> new InjectorBlock(
 			BlockBehaviour
@@ -22,6 +23,16 @@ public class NonsenseBlocks {
 				.ofFullCopy(Blocks.COPPER_BLOCK)
 				.isViewBlocking(falsePredicate())
 				.noOcclusion()
+		)
+	);
+
+	public static final DeferredBlock<?> HIGH_SPEED_CABLE = registerBlockAndItem(
+		"high_speed_cable",
+		() -> new HighSpeedCableBlock(
+			BlockBehaviour
+				.Properties
+				.ofFullCopy(Blocks.COPPER_BLOCK)
+				.isRedstoneConductor(falsePredicate())
 		)
 	);
 

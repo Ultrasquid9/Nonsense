@@ -1,7 +1,10 @@
 package uwu.juni.nonsense.datagen;
 
+import java.util.function.Supplier;
+
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import uwu.juni.nonsense.Nonsense;
@@ -19,11 +22,22 @@ public class NonsenseItemModels extends ItemModelProvider {
 			NonsenseItems.COPPER_COIL,
 			NonsenseBlocks.INJECTOR
 		);
+
+		simpleBlockItems(
+			NonsenseBlocks.HIGH_SPEED_CABLE
+		);
 	}
 
-	void basicItems(ItemLike... items) {
+	final void basicItems(ItemLike... items) {
 		for (var item : items) {
 			basicItem(item.asItem());
+		}
+	}
+
+	@SafeVarargs
+	final void simpleBlockItems(Supplier<? extends Block>... blocks) {
+		for (var block : blocks) {
+			simpleBlockItem(block.get());
 		}
 	}
 }
