@@ -7,5 +7,6 @@
 	"nonsense.configuration.title": "Nonsense - Config",
 	"nonsense.configuration.section.nonsense.common.toml": "Nonsense - Config",
 	"nonsense.configuration.section.nonsense.common.toml.title": "Nonsense - Config",
-	"nonsense.configuration.disable_quasi_connectivity": "Disable Quasi Connectivity"
+	"nonsense.configuration.disable_quasi_connectivity": "Disable Quasi Connectivity",
+	"nonsense.configuration.mod_only_debug_screen": "Moderator-Only Debug Screen"
 }

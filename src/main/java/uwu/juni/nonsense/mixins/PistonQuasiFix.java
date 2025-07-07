@@ -20,7 +20,7 @@ public class PistonQuasiFix {
 		Direction facing,
 		Operation<Boolean> og
 	) {
-		if (!NonsenseConfig.disableQuasiConnectivity()) {
+		if (!NonsenseConfig.getConfigValue(NonsenseConfig.DISABLE_QUASI_CONNECTIVITY)) {
 			return og.call(signalGetter, pos, facing);
 		}
 

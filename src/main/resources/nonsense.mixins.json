@@ -4,6 +4,7 @@
 	"compatibilityLevel": "JAVA_21",
 	"refmap": "nonsense.refmap.json",
 	"mixins": [
+		"ModOnlyDebugScreen",
 		"DispenserQuasiFix",
 		"PistonQuasiFix"
 	]

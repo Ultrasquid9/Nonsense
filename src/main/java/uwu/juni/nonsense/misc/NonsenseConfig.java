@@ -9,13 +9,17 @@ public class NonsenseConfig {
 		.comment("Whether or not Quasi Connectivity should be disabled")
 		.define("disable_quasi_connectivity", true);
 
+	public static final ModConfigSpec.BooleanValue MOD_ONLY_DEBUG_SCREEN = BUILDER
+		.comment("Whether or not the debug screen should be restricted to players with permission level 1 or above")
+		.define("mod_only_debug_screen", true);
+
 	public static final ModConfigSpec SPEC = BUILDER.build();
 
-	public static boolean disableQuasiConnectivity() {
+	public static boolean getConfigValue(ModConfigSpec.BooleanValue value) {
 		boolean should;
 
 		try {
-			should = DISABLE_QUASI_CONNECTIVITY.getAsBoolean();
+			should = value.getAsBoolean();
 		} catch (Exception e) {
 			should = true;
 		}

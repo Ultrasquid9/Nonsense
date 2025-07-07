@@ -26,7 +26,7 @@ public class DispenserQuasiFix {
 		boolean isMoving,
 		Operation<Void> og
 	) {
-		if (!NonsenseConfig.disableQuasiConnectivity()) {
+		if (!NonsenseConfig.getConfigValue(NonsenseConfig.DISABLE_QUASI_CONNECTIVITY)) {
 			og.call(state, level, pos, block, fromPos, isMoving);
 			return;
 		}
