@@ -29,6 +29,7 @@ public class NonsenseBlockLoot extends BlockLootSubProvider {
 		dropSelf(NonsenseBlocks.INJECTOR);
 		dropSelf(NonsenseBlocks.HIGH_SPEED_CABLE);
 		dropSelf(NonsenseBlocks.DENIER);
+		dropSelf(NonsenseBlocks.LATCH);
 	}
 
 	void dropSelf(DeferredBlock<?> b) {

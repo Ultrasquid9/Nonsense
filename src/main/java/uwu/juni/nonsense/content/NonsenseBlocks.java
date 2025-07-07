@@ -12,6 +12,7 @@ import uwu.juni.nonsense.Nonsense;
 import uwu.juni.nonsense.content.blocks.DenierBlock;
 import uwu.juni.nonsense.content.blocks.HighSpeedCableBlock;
 import uwu.juni.nonsense.content.blocks.InjectorBlock;
+import uwu.juni.nonsense.content.blocks.LatchBlock;
 
 public class NonsenseBlocks {
 	public static final DeferredRegister.Blocks REGISTER = DeferredRegister.createBlocks(Nonsense.MODID);
@@ -33,6 +34,17 @@ public class NonsenseBlocks {
 			BlockBehaviour
 				.Properties
 				.ofFullCopy(Blocks.REPEATER)
+		)
+	);
+
+	public static final DeferredBlock<?> LATCH = registerBlockAndItem(
+		"latch",
+		() -> new LatchBlock(
+			BlockBehaviour
+				.Properties
+				.ofFullCopy(Blocks.COPPER_BLOCK)
+				.isViewBlocking(falsePredicate())
+				.noOcclusion()
 		)
 	);
 

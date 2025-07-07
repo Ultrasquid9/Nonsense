@@ -20,7 +20,10 @@ public class NonsenseCreative {
 			.after(Items.HOPPER)
 			.insert(NonsenseBlocks.INJECTOR)
 			.after(Items.COMPARATOR)
-			.insert(NonsenseBlocks.DENIER)
+			.insert(
+				NonsenseBlocks.DENIER,
+				NonsenseBlocks.LATCH
+			)
 			.tab(CreativeModeTabs.INGREDIENTS)
 			.after(Items.NETHERITE_INGOT)
 			.insert(NonsenseItems.COPPER_COIL);

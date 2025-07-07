@@ -25,7 +25,8 @@ public class NonsenseItemModels extends ItemModelProvider {
 		);
 
 		simpleBlockItems(
-			NonsenseBlocks.HIGH_SPEED_CABLE
+			NonsenseBlocks.HIGH_SPEED_CABLE,
+			NonsenseBlocks.LATCH
 		);
 	}
 

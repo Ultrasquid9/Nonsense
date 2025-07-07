@@ -73,5 +73,19 @@ public class NonsenseBlockModels extends BlockStateProvider {
 				.rotationY((int)state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot())
 				.build();
 		});
+
+		getVariantBuilder(NonsenseBlocks.LATCH.get()).forAllStates(state -> {
+			var powered = state.getValue(BlockStateProperties.POWERED);
+
+			return ConfiguredModel.builder()
+				.modelFile(models()
+					.withExistingParent(powered ? "latch_on" : "latch", modLoc("latch_base"))
+					.texture("torch", mcLoc("block/redstone_torch" + (powered ? "" : "_off")))
+					.texture("front", modLoc("block/latch_front"))
+					.texture("side", modLoc("block/latch_side" + (powered ? "_on" : "")))
+				)
+				.rotationY((int)state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot())
+				.build();
+		});
 	}
 }
