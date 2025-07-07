@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour.StatePredicate;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.nonsense.Nonsense;
+import uwu.juni.nonsense.content.blocks.DenierBlock;
 import uwu.juni.nonsense.content.blocks.HighSpeedCableBlock;
 import uwu.juni.nonsense.content.blocks.InjectorBlock;
 
@@ -23,6 +24,15 @@ public class NonsenseBlocks {
 				.ofFullCopy(Blocks.COPPER_BLOCK)
 				.isViewBlocking(falsePredicate())
 				.noOcclusion()
+		)
+	);
+
+	public static final DeferredBlock<?> DENIER = registerBlockAndItem(
+		"denier",
+		() -> new DenierBlock(
+			BlockBehaviour
+				.Properties
+				.ofFullCopy(Blocks.REPEATER)
 		)
 	);
 

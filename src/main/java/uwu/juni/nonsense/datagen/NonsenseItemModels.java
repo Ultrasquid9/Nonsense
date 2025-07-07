@@ -20,7 +20,8 @@ public class NonsenseItemModels extends ItemModelProvider {
 	protected void registerModels() {
 		basicItems(
 			NonsenseItems.COPPER_COIL,
-			NonsenseBlocks.INJECTOR
+			NonsenseBlocks.INJECTOR,
+			NonsenseBlocks.DENIER
 		);
 
 		simpleBlockItems(

@@ -52,5 +52,20 @@ public class NonsenseBlockModels extends BlockStateProvider {
 				})
 				.build();
 		});
+
+		getVariantBuilder(NonsenseBlocks.DENIER.get()).forAllStates(state -> {
+			boolean powered = state.getValue(BlockStateProperties.POWERED);
+			var name = !powered
+				? "denier"
+				: "denier_on";
+
+			return ConfiguredModel.builder()
+				.modelFile(models()
+					.withExistingParent(name, modLoc("denier_base"))
+					.texture("top", modLoc("block/" + name))
+				)
+				.rotationY((int)state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot())
+				.build();
+		});
 	}
 }

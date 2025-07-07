@@ -38,6 +38,16 @@ public class NonsenseRecipes extends RecipeProvider {
 			.pattern("CHC")
 			.unlockedBy(getHasName(NonsenseItems.COPPER_COIL), has(NonsenseItems.COPPER_COIL))
 			.save(output);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, NonsenseBlocks.DENIER, 1)
+			.define('A', Items.AMETHYST_SHARD)
+			.define('R', Items.REDSTONE)
+			.define('S', Items.STONE)
+			.pattern(" A ")
+			.pattern("RAR")
+			.pattern("SSS")
+			.unlockedBy(getHasName(Items.AMETHYST_SHARD), has(Items.AMETHYST_SHARD))
+			.save(output);
 		
 		ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, NonsenseBlocks.HIGH_SPEED_CABLE, 1)
 			.define('C', NonsenseItems.COPPER_COIL)

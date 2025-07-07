@@ -19,6 +19,8 @@ public class NonsenseCreative {
 			.insert(NonsenseBlocks.HIGH_SPEED_CABLE)
 			.after(Items.HOPPER)
 			.insert(NonsenseBlocks.INJECTOR)
+			.after(Items.COMPARATOR)
+			.insert(NonsenseBlocks.DENIER)
 			.tab(CreativeModeTabs.INGREDIENTS)
 			.after(Items.NETHERITE_INGOT)
 			.insert(NonsenseItems.COPPER_COIL);
