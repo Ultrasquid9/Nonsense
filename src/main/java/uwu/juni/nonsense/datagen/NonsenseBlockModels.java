@@ -82,6 +82,7 @@ public class NonsenseBlockModels extends BlockStateProvider {
 					.withExistingParent(powered ? "latch_on" : "latch", modLoc("latch_base"))
 					.texture("torch", mcLoc("block/redstone_torch" + (powered ? "" : "_off")))
 					.texture("front", modLoc("block/latch_front"))
+					.texture("back", modLoc("block/latch_front" + (powered ? "_on" : "")))
 					.texture("side", modLoc("block/latch_side" + (powered ? "_on" : "")))
 				)
 				.rotationY((int)state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot())
