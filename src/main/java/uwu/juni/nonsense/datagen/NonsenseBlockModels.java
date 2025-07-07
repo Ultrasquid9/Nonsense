@@ -54,10 +54,16 @@ public class NonsenseBlockModels extends BlockStateProvider {
 		});
 
 		getVariantBuilder(NonsenseBlocks.DENIER.get()).forAllStates(state -> {
-			boolean powered = state.getValue(BlockStateProperties.POWERED);
-			var name = !powered
-				? "denier"
-				: "denier_on";
+			var name = "denier";
+
+			var powered = state.getValue(BlockStateProperties.POWERED);
+			var power = state.getValue(BlockStateProperties.POWER);
+
+			if (powered) {
+				name = power > 0 
+					? "denier_one" 
+					: "denier_both";
+			}
 
 			return ConfiguredModel.builder()
 				.modelFile(models()
