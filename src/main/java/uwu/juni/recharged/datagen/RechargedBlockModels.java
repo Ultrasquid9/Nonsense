@@ -88,5 +88,16 @@ public class RechargedBlockModels extends BlockStateProvider {
 				.rotationY((int)state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot())
 				.build();
 		});
+
+		getVariantBuilder(RechargedBlocks.PRISM.get()).forAllStates(state -> {
+			var name = "prism_" + String.valueOf(state.getValue(BlockStateProperties.POWER));
+
+			return ConfiguredModel.builder()
+				.modelFile(models()
+					.withExistingParent(name, mcLoc("cube_all"))
+					.texture("all", modLoc("block/" + name))
+				)
+				.build();
+		});
 	}
 }

@@ -1,0 +1,52 @@
+{
+	"variants": {
+		"power=0": {
+			"model": "recharged:block/prism_0"
+		},
+		"power=1": {
+			"model": "recharged:block/prism_1"
+		},
+		"power=10": {
+			"model": "recharged:block/prism_10"
+		},
+		"power=11": {
+			"model": "recharged:block/prism_11"
+		},
+		"power=12": {
+			"model": "recharged:block/prism_12"
+		},
+		"power=13": {
+			"model": "recharged:block/prism_13"
+		},
+		"power=14": {
+			"model": "recharged:block/prism_14"
+		},
+		"power=15": {
+			"model": "recharged:block/prism_15"
+		},
+		"power=2": {
+			"model": "recharged:block/prism_2"
+		},
+		"power=3": {
+			"model": "recharged:block/prism_3"
+		},
+		"power=4": {
+			"model": "recharged:block/prism_4"
+		},
+		"power=5": {
+			"model": "recharged:block/prism_5"
+		},
+		"power=6": {
+			"model": "recharged:block/prism_6"
+		},
+		"power=7": {
+			"model": "recharged:block/prism_7"
+		},
+		"power=8": {
+			"model": "recharged:block/prism_8"
+		},
+		"power=9": {
+			"model": "recharged:block/prism_9"
+		}
+	}
+}

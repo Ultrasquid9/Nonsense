@@ -13,6 +13,7 @@ import uwu.juni.recharged.content.blocks.DenierBlock;
 import uwu.juni.recharged.content.blocks.HighSpeedCableBlock;
 import uwu.juni.recharged.content.blocks.InjectorBlock;
 import uwu.juni.recharged.content.blocks.LatchBlock;
+import uwu.juni.recharged.content.blocks.PrismBlock;
 
 public class RechargedBlocks {
 	public static final DeferredRegister.Blocks REGISTER = DeferredRegister.createBlocks(Recharged.MODID);
@@ -55,6 +56,17 @@ public class RechargedBlocks {
 				.Properties
 				.ofFullCopy(Blocks.COPPER_BLOCK)
 				.isRedstoneConductor(falsePredicate())
+		)
+	);
+
+	public static final DeferredBlock<?> PRISM = registerBlockAndItem(
+		"prism",
+		() -> new PrismBlock(
+			BlockBehaviour
+				.Properties
+				.ofFullCopy(Blocks.SEA_LANTERN)
+				.isRedstoneConductor(falsePredicate())
+				.lightLevel(PrismBlock::getLightLevel)
 		)
 	);
 

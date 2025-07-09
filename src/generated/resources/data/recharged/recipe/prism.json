@@ -1,0 +1,21 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "redstone",
+	"key": {
+		"C": {
+			"item": "recharged:copper_coil"
+		},
+		"P": {
+			"item": "minecraft:prismarine_crystals"
+		}
+	},
+	"pattern": [
+		"CPC",
+		"P P",
+		"CPC"
+	],
+	"result": {
+		"count": 1,
+		"id": "recharged:prism"
+	}
+}

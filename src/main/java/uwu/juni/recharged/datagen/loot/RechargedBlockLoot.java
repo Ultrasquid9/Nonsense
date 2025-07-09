@@ -30,6 +30,7 @@ public class RechargedBlockLoot extends BlockLootSubProvider {
 		dropSelf(RechargedBlocks.HIGH_SPEED_CABLE);
 		dropSelf(RechargedBlocks.DENIER);
 		dropSelf(RechargedBlocks.LATCH);
+		dropSelf(RechargedBlocks.PRISM);
 	}
 
 	void dropSelf(DeferredBlock<?> b) {

@@ -28,6 +28,8 @@ public class RechargedItemModels extends ItemModelProvider {
 			RechargedBlocks.HIGH_SPEED_CABLE,
 			RechargedBlocks.LATCH
 		);
+
+		withExistingParent("prism", modLoc("block/prism_0"));
 	}
 
 	final void basicItems(ItemLike... items) {

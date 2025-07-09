@@ -16,7 +16,10 @@ public class RechargedCreative {
 		new CreativeBuilder(event)
 			.tab(CreativeModeTabs.REDSTONE_BLOCKS)
 			.after(Items.TARGET)
-			.insert(RechargedBlocks.HIGH_SPEED_CABLE)
+			.insert(
+				RechargedBlocks.HIGH_SPEED_CABLE,
+				RechargedBlocks.PRISM
+			)
 			.after(Items.HOPPER)
 			.insert(RechargedBlocks.INJECTOR)
 			.after(Items.COMPARATOR)

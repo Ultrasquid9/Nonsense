@@ -67,5 +67,14 @@ public class RechargedRecipes extends RecipeProvider {
 			.pattern("CIC")
 			.unlockedBy(getHasName(RechargedItems.COPPER_COIL), has(RechargedItems.COPPER_COIL))
 			.save(output);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, RechargedBlocks.PRISM, 1)
+			.define('C', RechargedItems.COPPER_COIL)
+			.define('P', Items.PRISMARINE_CRYSTALS)
+			.pattern("CPC")
+			.pattern("P P")
+			.pattern("CPC")
+			.unlockedBy(getHasName(Items.PRISMARINE_CRYSTALS), has(Items.PRISMARINE_CRYSTALS))
+			.save(output);
 	}
 }

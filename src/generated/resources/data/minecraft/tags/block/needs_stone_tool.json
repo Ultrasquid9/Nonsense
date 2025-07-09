@@ -2,6 +2,7 @@
 	"values": [
 		"recharged:injector",
 		"recharged:latch",
-		"recharged:high_speed_cable"
+		"recharged:high_speed_cable",
+		"recharged:prism"
 	]
 }

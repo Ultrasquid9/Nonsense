@@ -28,12 +28,14 @@ public class RechargedBlockTags extends BlockTagsProvider {
 		tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
 			RechargedBlocks.INJECTOR.get(),
 			RechargedBlocks.LATCH.get(),
-			RechargedBlocks.HIGH_SPEED_CABLE.get()
+			RechargedBlocks.HIGH_SPEED_CABLE.get(),
+			RechargedBlocks.PRISM.get()
 		);
 		tag(BlockTags.NEEDS_STONE_TOOL).add(
 			RechargedBlocks.INJECTOR.get(),
 			RechargedBlocks.LATCH.get(),
-			RechargedBlocks.HIGH_SPEED_CABLE.get()
+			RechargedBlocks.HIGH_SPEED_CABLE.get(),
+			RechargedBlocks.PRISM.get()
 		);
 	}
 }
