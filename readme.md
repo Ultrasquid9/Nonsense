@@ -1,4 +1,4 @@
-# Nonsense
-### Random nonsense I think will fit the game
+# Redstone: Recharged
+### A collection of redstone fixes, expansions, and tweaks. 
 
-Nonsense is a small Minecraft mod focused on making miniature changes to Minecraft.
+Recharged is a small, vanilla-friendly Minecraft mod which aims to make redstone easier and more pleasant to use, without fundamentally reworking the system from the ground up. 

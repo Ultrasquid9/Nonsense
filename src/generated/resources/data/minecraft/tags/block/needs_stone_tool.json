@@ -1,7 +1,7 @@
 {
 	"values": [
-		"nonsense:injector",
-		"nonsense:latch",
-		"nonsense:high_speed_cable"
+		"recharged:injector",
+		"recharged:latch",
+		"recharged:high_speed_cable"
 	]
 }

@@ -22,14 +22,14 @@ config="${mod_id}.mixins.json"
 
 ### Dependencies ###
 
-[[dependencies.nonsense]]
+[[dependencies.recharged]]
 	modId="neoforge"
 	type="required"
 	versionRange="${neo_version_range}"
 	ordering="NONE"
 	side="BOTH"
 
-[[dependencies.nonsense]]
+[[dependencies.recharged]]
 	modId="minecraft"
 	type="required"
 	versionRange="${minecraft_version_range}"

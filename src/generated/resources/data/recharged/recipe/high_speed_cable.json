@@ -1,0 +1,24 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "redstone",
+	"key": {
+		"C": {
+			"item": "recharged:copper_coil"
+		},
+		"I": {
+			"item": "minecraft:iron_ingot"
+		},
+		"R": {
+			"item": "minecraft:repeater"
+		}
+	},
+	"pattern": [
+		"CIC",
+		"CRC",
+		"CIC"
+	],
+	"result": {
+		"count": 1,
+		"id": "recharged:high_speed_cable"
+	}
+}

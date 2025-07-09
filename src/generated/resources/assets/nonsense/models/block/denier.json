@@ -1,6 +1,0 @@
-{
-	"parent": "nonsense:block/denier_base",
-	"textures": {
-		"top": "nonsense:block/denier"
-	}
-}

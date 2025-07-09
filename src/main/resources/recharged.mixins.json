@@ -1,0 +1,10 @@
+{
+	"required": "true",
+	"package": "uwu.juni.recharged.mixins",
+	"compatibilityLevel": "JAVA_21",
+	"refmap": "recharged.refmap.json",
+	"mixins": [
+		"DispenserQuasiFix",
+		"PistonQuasiFix"
+	]
+}

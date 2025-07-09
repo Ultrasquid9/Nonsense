@@ -1,0 +1,35 @@
+package uwu.juni.recharged.mixins;
+
+import org.spongepowered.asm.mixin.Mixin;
+
+import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.SignalGetter;
+import net.minecraft.world.level.block.piston.PistonBaseBlock;
+import uwu.juni.recharged.misc.RechargedConfig;
+
+@Mixin(PistonBaseBlock.class)
+public class PistonQuasiFix {
+	@WrapMethod(method = "getNeighborSignal")
+	private boolean Recharged_FixedNeighborSignal(
+		SignalGetter signalGetter,
+		BlockPos pos,
+		Direction facing,
+		Operation<Boolean> og
+	) {
+		if (!RechargedConfig.getConfigValue(RechargedConfig.DISABLE_QUASI_CONNECTIVITY)) {
+			return og.call(signalGetter, pos, facing);
+		}
+
+		for (var dir : Direction.values()) {
+			if (dir != facing && signalGetter.hasSignal(pos.relative(dir), dir)) {
+				return true;
+			}
+		}
+
+		return signalGetter.hasSignal(pos, Direction.DOWN);
+	}
+}

@@ -1,0 +1,9 @@
+{
+	"parent": "recharged:block/latch_base",
+	"textures": {
+		"back": "recharged:block/latch_front",
+		"front": "recharged:block/latch_front",
+		"side": "recharged:block/latch_side",
+		"torch": "minecraft:block/redstone_torch_off"
+	}
+}

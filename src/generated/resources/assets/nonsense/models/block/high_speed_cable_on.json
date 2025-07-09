@@ -1,8 +1,0 @@
-{
-	"parent": "minecraft:block/cube_bottom_top",
-	"textures": {
-		"bottom": "nonsense:block/high_speed_cable_bottom",
-		"side": "nonsense:block/high_speed_cable_side",
-		"top": "nonsense:block/high_speed_cable_top_on"
-	}
-}

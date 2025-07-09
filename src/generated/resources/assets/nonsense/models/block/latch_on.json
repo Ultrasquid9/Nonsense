@@ -1,9 +1,0 @@
-{
-	"parent": "nonsense:block/latch_base",
-	"textures": {
-		"back": "nonsense:block/latch_front_on",
-		"front": "nonsense:block/latch_front",
-		"side": "nonsense:block/latch_side_on",
-		"torch": "minecraft:block/redstone_torch"
-	}
-}

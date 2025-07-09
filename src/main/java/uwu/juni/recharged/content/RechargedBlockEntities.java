@@ -1,0 +1,37 @@
+package uwu.juni.recharged.content;
+
+import java.util.function.Supplier;
+
+import com.mojang.datafixers.DSL;
+
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.neoforged.neoforge.registries.DeferredRegister;
+import uwu.juni.recharged.Recharged;
+import uwu.juni.recharged.content.blocks.block_entities.InjectorBlockEntity;
+import uwu.juni.recharged.content.blocks.block_entities.LatchBlockEntity;
+
+public class RechargedBlockEntities {
+	public static final DeferredRegister<BlockEntityType<?>> REGISTER = DeferredRegister.create(
+		Registries.BLOCK_ENTITY_TYPE, 
+		Recharged.MODID
+	);
+
+	public static final Supplier<BlockEntityType<InjectorBlockEntity>> INJECTOR = REGISTER.register(
+		"injector",
+		() -> BlockEntityType.Builder.of(
+			InjectorBlockEntity::new,
+			RechargedBlocks.INJECTOR.get()
+		)
+		.build(DSL.emptyPartType())
+	);
+
+	public static final Supplier<BlockEntityType<LatchBlockEntity>> LATCH = REGISTER.register(
+		"latch",
+		() -> BlockEntityType.Builder.of(
+			LatchBlockEntity::new,
+			RechargedBlocks.LATCH.get()
+		)
+		.build(DSL.emptyPartType())
+	);
+}

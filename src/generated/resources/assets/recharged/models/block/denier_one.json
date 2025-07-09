@@ -1,0 +1,6 @@
+{
+	"parent": "recharged:block/denier_base",
+	"textures": {
+		"top": "recharged:block/denier_one"
+	}
+}
