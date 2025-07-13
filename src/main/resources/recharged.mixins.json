@@ -4,6 +4,7 @@
 	"compatibilityLevel": "JAVA_21",
 	"refmap": "recharged.refmap.json",
 	"mixins": [
+		"CarpetDupeFix",
 		"DispenserQuasiFix",
 		"PistonQuasiFix",
 		"PistonSideSupport",

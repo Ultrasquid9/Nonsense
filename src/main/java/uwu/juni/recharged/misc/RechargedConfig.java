@@ -14,6 +14,11 @@ public class RechargedConfig {
 		.comment(" Whether or not methods to break indestructible blocks (like portals) should be patched")
 		.define("fix_portal_break", true);
 
+	public static final ModConfigSpec.BooleanValue PISTONS_BREAK_CARPETS = BUILDER
+		.gameRestart()	
+		.comment(" Whether or not pistons should be able to break carpets")
+		.define("pistons_break_carpets", true);
+
 	public static final ModConfigSpec SPEC = BUILDER.build();
 
 	public static <T> T getConfigValue(ConfigValue<T> value) {
