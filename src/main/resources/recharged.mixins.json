@@ -5,6 +5,7 @@
 	"refmap": "recharged.refmap.json",
 	"mixins": [
 		"DispenserQuasiFix",
-		"PistonQuasiFix"
+		"PistonQuasiFix",
+		"PortalBreakFix"
 	]
 }

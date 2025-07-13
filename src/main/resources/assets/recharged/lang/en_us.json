@@ -12,5 +12,6 @@
 	"recharged.configuration.title": "Recharged - Config",
 	"recharged.configuration.section.recharged.common.toml": "Recharged - Config",
 	"recharged.configuration.section.recharged.common.toml.title": "Recharged - Config",
-	"recharged.configuration.disable_quasi_connectivity": "Disable Quasi Connectivity"
+	"recharged.configuration.disable_quasi_connectivity": "Disable Quasi Connectivity",
+	"recharged.configuration.fix_portal_break": "Fix Methods To Break Portals"
 }
