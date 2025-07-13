@@ -29,13 +29,25 @@ public class RechargedBlockTags extends BlockTagsProvider {
 			RechargedBlocks.INJECTOR.get(),
 			RechargedBlocks.LATCH.get(),
 			RechargedBlocks.HIGH_SPEED_CABLE.get(),
-			RechargedBlocks.PRISM.get()
+			RechargedBlocks.PRISM.get(),
+
+			RechargedBlocks.OBSIDIAN_STAIRS.get(),
+			RechargedBlocks.OBSIDIAN_SLAB.get(),
+			RechargedBlocks.OBSIDIAN_WALL.get()
 		);
 		tag(BlockTags.NEEDS_STONE_TOOL).add(
 			RechargedBlocks.INJECTOR.get(),
 			RechargedBlocks.LATCH.get(),
 			RechargedBlocks.HIGH_SPEED_CABLE.get(),
 			RechargedBlocks.PRISM.get()
+		);
+		tag(BlockTags.NEEDS_DIAMOND_TOOL).add(
+			RechargedBlocks.OBSIDIAN_STAIRS.get(),
+			RechargedBlocks.OBSIDIAN_SLAB.get(),
+			RechargedBlocks.OBSIDIAN_WALL.get()
+		);
+		tag(BlockTags.WALLS).add(
+			RechargedBlocks.OBSIDIAN_WALL.get()
 		);
 	}
 }

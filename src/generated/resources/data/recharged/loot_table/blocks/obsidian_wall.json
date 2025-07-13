@@ -1,0 +1,21 @@
+{
+	"type": "minecraft:block",
+	"pools": [
+		{
+			"bonus_rolls": 0,
+			"conditions": [
+				{
+					"condition": "minecraft:survives_explosion"
+				}
+			],
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "recharged:obsidian_wall"
+				}
+			],
+			"rolls": 1
+		}
+	],
+	"random_sequence": "recharged:blocks/obsidian_wall"
+}

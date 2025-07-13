@@ -4,6 +4,9 @@ import java.util.function.Supplier;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.StatePredicate;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -33,18 +36,14 @@ public class RechargedBlocks {
 	public static final DeferredBlock<?> DENIER = registerBlockAndItem(
 		"denier",
 		() -> new DenierBlock(
-			BlockBehaviour
-				.Properties
-				.ofFullCopy(Blocks.REPEATER)
+			BlockBehaviour.Properties.ofFullCopy(Blocks.REPEATER)
 		)
 	);
 
 	public static final DeferredBlock<?> RESISTOR = registerBlockAndItem(
 		"resistor",
 		() -> new ResistorBlock(
-			BlockBehaviour
-				.Properties
-				.ofFullCopy(Blocks.REPEATER)
+			BlockBehaviour.Properties.ofFullCopy(Blocks.REPEATER)
 		)
 	);
 
@@ -77,6 +76,28 @@ public class RechargedBlocks {
 				.ofFullCopy(Blocks.SEA_LANTERN)
 				.isRedstoneConductor(falsePredicate())
 				.lightLevel(PrismBlock::getLightLevel)
+		)
+	);
+
+	public static final DeferredBlock<StairBlock> OBSIDIAN_STAIRS = registerBlockAndItem(
+		"obsidian_stairs",
+		() -> new StairBlock(
+			Blocks.OBSIDIAN.defaultBlockState(),
+			BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)
+		)
+	);
+
+	public static final DeferredBlock<SlabBlock> OBSIDIAN_SLAB = registerBlockAndItem(
+		"obsidian_slab",
+		() -> new SlabBlock(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)
+		)
+	);
+
+	public static final DeferredBlock<WallBlock> OBSIDIAN_WALL = registerBlockAndItem(
+		"obsidian_wall",
+		() -> new WallBlock(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)
 		)
 	);
 

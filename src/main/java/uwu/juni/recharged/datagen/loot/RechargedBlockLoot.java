@@ -32,6 +32,9 @@ public class RechargedBlockLoot extends BlockLootSubProvider {
 		dropSelf(RechargedBlocks.RESISTOR);
 		dropSelf(RechargedBlocks.LATCH);
 		dropSelf(RechargedBlocks.PRISM);
+		dropSelf(RechargedBlocks.OBSIDIAN_STAIRS);
+		dropSelf(RechargedBlocks.OBSIDIAN_SLAB);
+		dropSelf(RechargedBlocks.OBSIDIAN_WALL);
 	}
 
 	void dropSelf(DeferredBlock<?> b) {

@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "building",
+	"key": {
+		"O": {
+			"item": "minecraft:obsidian"
+		}
+	},
+	"pattern": [
+		"OOO",
+		"OOO"
+	],
+	"result": {
+		"count": 6,
+		"id": "recharged:obsidian_wall"
+	}
+}

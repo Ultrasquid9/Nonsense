@@ -85,5 +85,26 @@ public class RechargedRecipes extends RecipeProvider {
 			.pattern("CPC")
 			.unlockedBy(getHasName(Items.PRISMARINE_CRYSTALS), has(Items.PRISMARINE_CRYSTALS))
 			.save(output);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RechargedBlocks.OBSIDIAN_STAIRS, 4)
+			.define('O', Items.OBSIDIAN)
+			.pattern("  O")
+			.pattern(" OO")
+			.pattern("OOO")
+			.unlockedBy(getHasName(Items.OBSIDIAN), has(Items.OBSIDIAN))
+			.save(output);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RechargedBlocks.OBSIDIAN_SLAB, 6)
+			.define('O', Items.OBSIDIAN)
+			.pattern("OOO")
+			.unlockedBy(getHasName(Items.OBSIDIAN), has(Items.OBSIDIAN))
+			.save(output);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RechargedBlocks.OBSIDIAN_WALL, 6)
+			.define('O', Items.OBSIDIAN)
+			.pattern("OOO")
+			.pattern("OOO")
+			.unlockedBy(getHasName(Items.OBSIDIAN), has(Items.OBSIDIAN))
+			.save(output);
 	}
 }

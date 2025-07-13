@@ -7,6 +7,7 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import uwu.juni.recharged.content.RechargedBlocks;
 import uwu.juni.recharged.content.RechargedItems;
@@ -14,6 +15,14 @@ import uwu.juni.recharged.content.RechargedItems;
 public class RechargedCreative {
 	public static void addToCreative(BuildCreativeModeTabContentsEvent event) {
 		new CreativeBuilder(event)
+			.tab(CreativeModeTabs.BUILDING_BLOCKS)
+			.after(Items.PURPUR_SLAB)
+			.insert(
+				Blocks.OBSIDIAN,
+				RechargedBlocks.OBSIDIAN_STAIRS,
+				RechargedBlocks.OBSIDIAN_SLAB,
+				RechargedBlocks.OBSIDIAN_WALL
+			)
 			.tab(CreativeModeTabs.REDSTONE_BLOCKS)
 			.after(Items.TARGET)
 			.insert(
@@ -27,6 +36,13 @@ public class RechargedCreative {
 				RechargedBlocks.DENIER,
 				RechargedBlocks.RESISTOR,
 				RechargedBlocks.LATCH
+			)
+			.after(Items.WHITE_WOOL)
+			.insert(
+				Blocks.OBSIDIAN,
+				RechargedBlocks.OBSIDIAN_STAIRS,
+				RechargedBlocks.OBSIDIAN_SLAB,
+				RechargedBlocks.OBSIDIAN_WALL
 			)
 			.tab(CreativeModeTabs.INGREDIENTS)
 			.after(Items.NETHERITE_INGOT)

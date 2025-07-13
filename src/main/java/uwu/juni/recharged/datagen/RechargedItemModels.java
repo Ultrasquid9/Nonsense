@@ -27,10 +27,15 @@ public class RechargedItemModels extends ItemModelProvider {
 
 		simpleBlockItems(
 			RechargedBlocks.HIGH_SPEED_CABLE,
-			RechargedBlocks.LATCH
+			RechargedBlocks.LATCH,
+
+			RechargedBlocks.OBSIDIAN_STAIRS,
+			RechargedBlocks.OBSIDIAN_SLAB
 		);
 
 		withExistingParent("prism", modLoc("block/prism_0"));
+
+		wallInventory(RechargedBlocks.OBSIDIAN_WALL.getRegisteredName(), mcLoc("block/obsidian"));
 	}
 
 	final void basicItems(ItemLike... items) {

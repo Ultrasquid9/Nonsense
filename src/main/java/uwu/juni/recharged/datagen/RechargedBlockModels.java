@@ -118,5 +118,10 @@ public class RechargedBlockModels extends BlockStateProvider {
 				)
 				.build();
 		});
+
+		final var obsidian = mcLoc("block/obsidian");
+		stairsBlock(RechargedBlocks.OBSIDIAN_STAIRS.get(), obsidian);
+		slabBlock(RechargedBlocks.OBSIDIAN_SLAB.get(), obsidian, obsidian);
+		wallBlock(RechargedBlocks.OBSIDIAN_WALL.get(), obsidian);
 	}
 }
