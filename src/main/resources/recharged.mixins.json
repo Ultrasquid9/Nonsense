@@ -6,6 +6,7 @@
 	"mixins": [
 		"DispenserQuasiFix",
 		"PistonQuasiFix",
+		"PistonSideSupport",
 		"PortalBreakFix"
 	]
 }

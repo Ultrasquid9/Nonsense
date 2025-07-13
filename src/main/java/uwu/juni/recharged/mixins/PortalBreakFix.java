@@ -15,7 +15,7 @@ import uwu.juni.recharged.misc.RechargedConfig;
 @Mixin(Feature.class)
 public class PortalBreakFix {
 	@WrapMethod(method = "setBlock")
-	protected void setBlock(LevelWriter levelWriter, BlockPos pos, BlockState state, Operation<Void> og) {
+	protected void Recharged_CheckedSetBlock(LevelWriter levelWriter, BlockPos pos, BlockState state, Operation<Void> og) {
 		if (RechargedConfig.getConfigValue(RechargedConfig.FIX_PORTAL_BREAK) && levelWriter instanceof Level level) {
 			if (level.getBlockState(pos).getBlock().defaultDestroyTime() < 0) {
 				return;
