@@ -21,7 +21,8 @@ public class RechargedItemModels extends ItemModelProvider {
 		basicItems(
 			RechargedItems.COPPER_COIL,
 			RechargedBlocks.INJECTOR,
-			RechargedBlocks.DENIER
+			RechargedBlocks.DENIER,
+			RechargedBlocks.RESISTOR
 		);
 
 		simpleBlockItems(

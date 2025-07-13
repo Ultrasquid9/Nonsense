@@ -29,6 +29,7 @@ public class RechargedBlockLoot extends BlockLootSubProvider {
 		dropSelf(RechargedBlocks.INJECTOR);
 		dropSelf(RechargedBlocks.HIGH_SPEED_CABLE);
 		dropSelf(RechargedBlocks.DENIER);
+		dropSelf(RechargedBlocks.RESISTOR);
 		dropSelf(RechargedBlocks.LATCH);
 		dropSelf(RechargedBlocks.PRISM);
 	}

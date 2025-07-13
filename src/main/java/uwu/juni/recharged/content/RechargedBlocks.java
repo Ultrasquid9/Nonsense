@@ -14,6 +14,7 @@ import uwu.juni.recharged.content.blocks.HighSpeedCableBlock;
 import uwu.juni.recharged.content.blocks.InjectorBlock;
 import uwu.juni.recharged.content.blocks.LatchBlock;
 import uwu.juni.recharged.content.blocks.PrismBlock;
+import uwu.juni.recharged.content.blocks.ResistorBlock;
 
 public class RechargedBlocks {
 	public static final DeferredRegister.Blocks REGISTER = DeferredRegister.createBlocks(Recharged.MODID);
@@ -32,6 +33,15 @@ public class RechargedBlocks {
 	public static final DeferredBlock<?> DENIER = registerBlockAndItem(
 		"denier",
 		() -> new DenierBlock(
+			BlockBehaviour
+				.Properties
+				.ofFullCopy(Blocks.REPEATER)
+		)
+	);
+
+	public static final DeferredBlock<?> RESISTOR = registerBlockAndItem(
+		"resistor",
+		() -> new ResistorBlock(
 			BlockBehaviour
 				.Properties
 				.ofFullCopy(Blocks.REPEATER)

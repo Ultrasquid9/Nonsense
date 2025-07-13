@@ -7,6 +7,7 @@ import net.neoforged.neoforge.client.model.generators.ConfiguredModel;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import uwu.juni.recharged.Recharged;
 import uwu.juni.recharged.content.RechargedBlocks;
+import uwu.juni.recharged.content.blocks.ResistorBlock;
 
 public class RechargedBlockModels extends BlockStateProvider {
 	public RechargedBlockModels(PackOutput output, ExistingFileHelper helper) {
@@ -73,6 +74,24 @@ public class RechargedBlockModels extends BlockStateProvider {
 				.rotationY((int)state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot())
 				.build();
 		});
+
+		getVariantBuilder(RechargedBlocks.RESISTOR.get()).forAllStatesExcept(state -> {
+			var name = "resistor";
+
+			var powered = state.getValue(BlockStateProperties.POWERED);
+
+			if (powered) {
+				name += "_on";
+			}
+
+			return ConfiguredModel.builder()
+				.modelFile(models()
+					.withExistingParent(name, modLoc("resistor_base"))
+					.texture("torch", mcLoc("block/redstone_torch" + (powered ? "" : "_off")))
+				)
+				.rotationY((int)state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot())
+				.build();
+		}, ResistorBlock.RESISTANCE);
 
 		getVariantBuilder(RechargedBlocks.LATCH.get()).forAllStates(state -> {
 			var powered = state.getValue(BlockStateProperties.POWERED);

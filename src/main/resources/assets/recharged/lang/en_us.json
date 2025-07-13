@@ -3,6 +3,7 @@
 	"block.recharged.high_speed_cable": "High-Speed Cable",
 	"block.recharged.prism": "Redstone Prism",
 	"block.recharged.denier": "Redstone Denier",
+	"block.recharged.resistor": "Redstone Resistor",
 	"block.recharged.latch": "Latch",
 	"block.recharged.injector": "Injector",
 	"recharged.configuration.title": "Recharged - Config",

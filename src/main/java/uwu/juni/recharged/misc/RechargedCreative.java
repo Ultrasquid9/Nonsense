@@ -25,6 +25,7 @@ public class RechargedCreative {
 			.after(Items.COMPARATOR)
 			.insert(
 				RechargedBlocks.DENIER,
+				RechargedBlocks.RESISTOR,
 				RechargedBlocks.LATCH
 			)
 			.tab(CreativeModeTabs.INGREDIENTS)

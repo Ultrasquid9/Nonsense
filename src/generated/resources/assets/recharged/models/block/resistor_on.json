@@ -1,0 +1,6 @@
+{
+	"parent": "recharged:block/resistor_base",
+	"textures": {
+		"torch": "minecraft:block/redstone_torch"
+	}
+}

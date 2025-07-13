@@ -57,6 +57,15 @@ public class RechargedRecipes extends RecipeProvider {
 			.pattern("SSS")
 			.unlockedBy(getHasName(Items.AMETHYST_SHARD), has(Items.AMETHYST_SHARD))
 			.save(output);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, RechargedBlocks.RESISTOR, 1)
+			.define('P', Items.POPPED_CHORUS_FRUIT)
+			.define('R', Items.REDSTONE_TORCH)
+			.define('S', Items.STONE)
+			.pattern("RPR")
+			.pattern("SSS")
+			.unlockedBy(getHasName(Items.AMETHYST_SHARD), has(Items.AMETHYST_SHARD))
+			.save(output);
 		
 		ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, RechargedBlocks.HIGH_SPEED_CABLE, 1)
 			.define('C', RechargedItems.COPPER_COIL)

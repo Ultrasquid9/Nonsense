@@ -1,0 +1,23 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "redstone",
+	"key": {
+		"P": {
+			"item": "minecraft:popped_chorus_fruit"
+		},
+		"R": {
+			"item": "minecraft:redstone_torch"
+		},
+		"S": {
+			"item": "minecraft:stone"
+		}
+	},
+	"pattern": [
+		"RPR",
+		"SSS"
+	],
+	"result": {
+		"count": 1,
+		"id": "recharged:resistor"
+	}
+}
