@@ -14,6 +14,10 @@ public class RechargedConfig {
 		.comment(" Whether or not methods to break indestructible blocks (like portals) should be patched")
 		.define("fix_portal_break", true);
 
+	public static final ModConfigSpec.BooleanValue NON_POSITIONAL_REDSTONE = BUILDER
+		.comment(" Whether redstone wire update order should be independant of position")
+		.define("non_positional_redstone", true);
+
 	public static final ModConfigSpec.BooleanValue PISTONS_BREAK_CARPETS = BUILDER
 		.gameRestart()	
 		.comment(" Whether or not pistons should be able to break carpets")

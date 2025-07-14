@@ -9,6 +9,7 @@
 		"DispenserQuasiFix",
 		"PistonBugfixes",
 		"PistonSideSupport",
-		"PortalBreakFix"
+		"PortalBreakFix",
+		"RedstoneUpdateOrderFix"
 	]
 }
