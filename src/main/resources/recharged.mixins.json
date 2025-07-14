@@ -6,7 +6,7 @@
 	"mixins": [
 		"CarpetDupeFix",
 		"DispenserQuasiFix",
-		"PistonQuasiFix",
+		"PistonBugfixes",
 		"PistonSideSupport",
 		"PortalBreakFix"
 	]
