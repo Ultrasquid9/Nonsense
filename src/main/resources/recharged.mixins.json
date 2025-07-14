@@ -5,6 +5,7 @@
 	"refmap": "recharged.refmap.json",
 	"mixins": [
 		"CarpetDupeFix",
+		"CoralAdditions",
 		"DispenserQuasiFix",
 		"PistonBugfixes",
 		"PistonSideSupport",
