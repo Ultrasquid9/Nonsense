@@ -8,7 +8,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import net.minecraft.world.level.block.CarpetBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.PushReaction;
-import uwu.juni.recharged.misc.RechargedConfig;
+import uwu.juni.recharged.RechargedConfig;
 
 @Mixin(CarpetBlock.class)
 public class CarpetDupeFix {

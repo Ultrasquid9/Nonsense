@@ -1,4 +1,4 @@
-package uwu.juni.recharged.misc;
+package uwu.juni.recharged;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 import net.neoforged.neoforge.common.ModConfigSpec.ConfigValue;

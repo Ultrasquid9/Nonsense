@@ -10,7 +10,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelWriter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.levelgen.feature.Feature;
-import uwu.juni.recharged.misc.RechargedConfig;
+import uwu.juni.recharged.RechargedConfig;
 
 @Mixin(Feature.class)
 public class PortalBreakFix {

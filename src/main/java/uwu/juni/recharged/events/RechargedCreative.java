@@ -1,4 +1,4 @@
-package uwu.juni.recharged.misc;
+package uwu.juni.recharged.events;
 
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.item.CreativeModeTab;
@@ -8,12 +8,16 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
 import uwu.juni.recharged.content.RechargedBlocks;
 import uwu.juni.recharged.content.RechargedItems;
 
+@EventBusSubscriber
 public class RechargedCreative {
-	public static void addToCreative(BuildCreativeModeTabContentsEvent event) {
+	@SubscribeEvent
+	static void addToCreative(BuildCreativeModeTabContentsEvent event) {
 		new CreativeBuilder(event)
 			.tab(CreativeModeTabs.BUILDING_BLOCKS)
 			.after(Items.PURPUR_SLAB)

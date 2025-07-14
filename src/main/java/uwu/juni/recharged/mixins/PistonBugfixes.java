@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.piston.PistonBaseBlock;
 import net.minecraft.world.level.block.piston.PistonHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import uwu.juni.recharged.misc.RechargedConfig;
+import uwu.juni.recharged.RechargedConfig;
 
 @Mixin(PistonBaseBlock.class)
 public class PistonBugfixes {

@@ -1,4 +1,4 @@
-package uwu.juni.recharged.misc;
+package uwu.juni.recharged.events;
 
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -7,9 +7,9 @@ import uwu.juni.recharged.content.RechargedBlocks;
 import uwu.juni.recharged.content.blocks.ResistorBlock;
 
 @EventBusSubscriber
-public class RechargedEvents {
+public class RechargedBlockColors {
 	@SubscribeEvent
-	public static void blockColors(RegisterColorHandlersEvent.Block event) {
+	static void blockColors(RegisterColorHandlersEvent.Block event) {
 		event.register(
 			ResistorBlock::color,
 			RechargedBlocks.RESISTOR.get()
