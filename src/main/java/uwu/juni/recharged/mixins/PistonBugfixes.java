@@ -9,6 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.SignalGetter;
+import net.minecraft.world.level.block.piston.MovingPistonBlock;
 import net.minecraft.world.level.block.piston.PistonBaseBlock;
 import net.minecraft.world.level.block.piston.PistonHeadBlock;
 import net.minecraft.world.level.block.state.BlockState;
@@ -51,7 +52,8 @@ public class PistonBugfixes {
 		}
 
 		var newPos = pos.relative(state.getValue(BlockStateProperties.FACING));
-		var pistonHeadExists = level.getBlockState(newPos).getBlock() instanceof PistonHeadBlock;
+		var block = level.getBlockState(newPos).getBlock();
+		var pistonHeadExists = block instanceof PistonHeadBlock || block instanceof MovingPistonBlock;
 		var extended = state.getValue(BlockStateProperties.EXTENDED);
 
 		if (!pistonHeadExists && extended) {
