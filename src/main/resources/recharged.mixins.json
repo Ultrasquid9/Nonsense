@@ -4,6 +4,10 @@
 	"compatibilityLevel": "JAVA_21",
 	"refmap": "recharged.refmap.json",
 	"mixins": [
+		"waterlog.WaterlogComparators",
+		"waterlog.WaterlogDust",
+		"waterlog.WaterlogLevers",
+		"waterlog.WaterlogRepeaters",
 		"CarpetDupeFix",
 		"CoralAdditions",
 		"DispenserQuasiFix",

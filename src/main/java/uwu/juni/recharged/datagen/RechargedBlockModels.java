@@ -54,7 +54,7 @@ public class RechargedBlockModels extends BlockStateProvider {
 				.build();
 		});
 
-		getVariantBuilder(RechargedBlocks.DENIER.get()).forAllStates(state -> {
+		getVariantBuilder(RechargedBlocks.DENIER.get()).forAllStatesExcept(state -> {
 			var name = "denier";
 
 			var powered = state.getValue(BlockStateProperties.POWERED);
@@ -73,7 +73,7 @@ public class RechargedBlockModels extends BlockStateProvider {
 				)
 				.rotationY((int)state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot())
 				.build();
-		});
+		}, BlockStateProperties.WATERLOGGED);
 
 		getVariantBuilder(RechargedBlocks.RESISTOR.get()).forAllStatesExcept(state -> {
 			var name = "resistor";
@@ -91,9 +91,9 @@ public class RechargedBlockModels extends BlockStateProvider {
 				)
 				.rotationY((int)state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot())
 				.build();
-		}, ResistorBlock.RESISTANCE);
+		}, ResistorBlock.RESISTANCE, BlockStateProperties.WATERLOGGED);
 
-		getVariantBuilder(RechargedBlocks.LATCH.get()).forAllStates(state -> {
+		getVariantBuilder(RechargedBlocks.LATCH.get()).forAllStatesExcept(state -> {
 			var powered = state.getValue(BlockStateProperties.POWERED);
 
 			return ConfiguredModel.builder()
@@ -106,7 +106,7 @@ public class RechargedBlockModels extends BlockStateProvider {
 				)
 				.rotationY((int)state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot())
 				.build();
-		});
+		}, BlockStateProperties.WATERLOGGED);
 
 		getVariantBuilder(RechargedBlocks.PRISM.get()).forAllStates(state -> {
 			var name = "prism_" + String.valueOf(state.getValue(BlockStateProperties.POWER));
