@@ -15,6 +15,7 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RedStoneWireBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -58,7 +59,10 @@ public abstract class WaterlogDust extends Block implements SimpleWaterloggedBlo
 			level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
 		}
 
-		return og.call(state, dir, neighborState, level, pos, neighborPos).setValue(BlockStateProperties.WATERLOGGED, flag);
+		var newState = og.call(state, dir, neighborState, level, pos, neighborPos);
+		return newState.is(Blocks.REDSTONE_WIRE)
+			? newState.setValue(BlockStateProperties.WATERLOGGED, flag)
+			: newState;
 	}
 
 	@Override
