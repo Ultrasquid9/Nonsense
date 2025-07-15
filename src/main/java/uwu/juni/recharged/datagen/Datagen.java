@@ -11,6 +11,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 import uwu.juni.recharged.Recharged;
 import uwu.juni.recharged.datagen.loot.RechargedBlockLoot;
+import uwu.juni.recharged.datagen.loot.RechargedMiscLoot;
 import uwu.juni.recharged.datagen.tags.RechargedBlockTags;
 
 @EventBusSubscriber(modid = Recharged.MODID)
@@ -36,7 +37,8 @@ public class Datagen {
 		// Loot //
 
 		final var entries = List.of(
-			new SubProviderEntry(RechargedBlockLoot::new, LootContextParamSets.BLOCK)
+			new SubProviderEntry(RechargedBlockLoot::new, LootContextParamSets.BLOCK),
+			new SubProviderEntry(RechargedMiscLoot::new, LootContextParamSets.ALL_PARAMS)
 		);
 		datagen.addProvider(event.includeServer(), new LootTableProvider(
 			output, 

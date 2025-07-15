@@ -1,0 +1,15 @@
+{
+	"pools": [
+		{
+			"bonus_rolls": 0,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:sand"
+				}
+			],
+			"rolls": 1
+		}
+	],
+	"random_sequence": "recharged:coral_erosion"
+}

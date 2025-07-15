@@ -8,10 +8,12 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.HolderLookup.Provider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.common.data.BlockTagsProvider;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import uwu.juni.recharged.Recharged;
 import uwu.juni.recharged.content.RechargedBlocks;
+import uwu.juni.recharged.datagen.RechargedTags;
 
 @ParametersAreNonnullByDefault
 public class RechargedBlockTags extends BlockTagsProvider {
@@ -48,6 +50,28 @@ public class RechargedBlockTags extends BlockTagsProvider {
 		);
 		tag(BlockTags.WALLS).add(
 			RechargedBlocks.OBSIDIAN_WALL.get()
+		);
+		tag(RechargedTags.Blocks.DEAD_CORALS).add(
+			Blocks.DEAD_BRAIN_CORAL,
+			Blocks.DEAD_BRAIN_CORAL_BLOCK,
+			Blocks.DEAD_BRAIN_CORAL_FAN,
+			Blocks.DEAD_BRAIN_CORAL_WALL_FAN,
+			Blocks.DEAD_BUBBLE_CORAL,
+			Blocks.DEAD_BUBBLE_CORAL_BLOCK,
+			Blocks.DEAD_BUBBLE_CORAL_FAN,
+			Blocks.DEAD_BUBBLE_CORAL_WALL_FAN,
+			Blocks.DEAD_FIRE_CORAL,
+			Blocks.DEAD_FIRE_CORAL_BLOCK,
+			Blocks.DEAD_FIRE_CORAL_FAN,
+			Blocks.DEAD_FIRE_CORAL_WALL_FAN,
+			Blocks.DEAD_HORN_CORAL,
+			Blocks.DEAD_HORN_CORAL_BLOCK,
+			Blocks.DEAD_HORN_CORAL_FAN,
+			Blocks.DEAD_HORN_CORAL_WALL_FAN,
+			Blocks.DEAD_TUBE_CORAL,
+			Blocks.DEAD_TUBE_CORAL_BLOCK,
+			Blocks.DEAD_TUBE_CORAL_FAN,
+			Blocks.DEAD_TUBE_CORAL_WALL_FAN
 		);
 	}
 }
