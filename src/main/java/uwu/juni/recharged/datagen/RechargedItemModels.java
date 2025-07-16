@@ -6,7 +6,9 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.client.model.generators.ItemModelProvider;
+import net.neoforged.neoforge.client.model.generators.ModelFile;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import net.neoforged.neoforge.registries.DeferredItem;
 import uwu.juni.recharged.Recharged;
 import uwu.juni.recharged.content.RechargedBlocks;
 import uwu.juni.recharged.content.RechargedItems;
@@ -35,6 +37,8 @@ public class RechargedItemModels extends ItemModelProvider {
 
 		withExistingParent("prism", modLoc("block/prism_0"));
 
+		flatBlock(RechargedItems.GLOW_TORCH);
+
 		wallInventory(RechargedBlocks.OBSIDIAN_WALL.getRegisteredName(), mcLoc("block/obsidian"));
 	}
 
@@ -49,5 +53,13 @@ public class RechargedItemModels extends ItemModelProvider {
 		for (var block : blocks) {
 			simpleBlockItem(block.get());
 		}
+	}
+
+	final void flatBlock(DeferredItem<?> item) {
+		var key = item.getId();
+
+		getBuilder(key.toString())
+			.parent(new ModelFile.UncheckedModelFile("item/generated"))
+			.texture("layer0", modLoc("block/" + key.getPath()));
 	}
 }

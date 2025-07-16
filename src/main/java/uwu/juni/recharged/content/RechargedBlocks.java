@@ -13,6 +13,8 @@ import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.recharged.Recharged;
 import uwu.juni.recharged.content.blocks.DenierBlock;
+import uwu.juni.recharged.content.blocks.GlowTorchBlock;
+import uwu.juni.recharged.content.blocks.GlowWallTorchBlock;
 import uwu.juni.recharged.content.blocks.HighSpeedCableBlock;
 import uwu.juni.recharged.content.blocks.InjectorBlock;
 import uwu.juni.recharged.content.blocks.LatchBlock;
@@ -98,6 +100,20 @@ public class RechargedBlocks {
 		"obsidian_wall",
 		() -> new WallBlock(
 			BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)
+		)
+	);
+
+	public static final DeferredBlock<GlowTorchBlock> GLOW_TORCH = REGISTER.register(
+		"glow_torch",
+		() -> new GlowTorchBlock(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.TORCH).lightLevel(a -> 12)
+		)
+	);
+
+	public static final DeferredBlock<GlowWallTorchBlock> GLOW_WALL_TORCH = REGISTER.register(
+		"glow_wall_torch",
+		() -> new GlowWallTorchBlock(
+			BlockBehaviour.Properties.ofFullCopy(Blocks.WALL_TORCH).lightLevel(a -> 12).lootFrom(GLOW_TORCH)
 		)
 	);
 

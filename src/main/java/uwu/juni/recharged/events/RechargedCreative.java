@@ -27,6 +27,9 @@ public class RechargedCreative {
 				RechargedBlocks.OBSIDIAN_SLAB,
 				RechargedBlocks.OBSIDIAN_WALL
 			)
+			.tab(CreativeModeTabs.FUNCTIONAL_BLOCKS)
+			.after(Items.SOUL_TORCH)
+			.insert(RechargedItems.GLOW_TORCH)
 			.tab(CreativeModeTabs.REDSTONE_BLOCKS)
 			.after(Items.TARGET)
 			.insert(

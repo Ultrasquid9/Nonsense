@@ -106,5 +106,13 @@ public class RechargedRecipes extends RecipeProvider {
 			.pattern("OOO")
 			.unlockedBy(getHasName(Items.OBSIDIAN), has(Items.OBSIDIAN))
 			.save(output);
+
+		ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, RechargedItems.GLOW_TORCH, 3)
+			.define('G', Items.GLOW_INK_SAC)
+			.define('S', Items.STICK)
+			.pattern("G")
+			.pattern("S")
+			.unlockedBy(getHasName(Items.GLOW_INK_SAC), has(Items.GLOW_INK_SAC))
+			.save(output);
 	}
 }

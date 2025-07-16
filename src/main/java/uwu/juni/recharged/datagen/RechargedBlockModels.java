@@ -17,7 +17,8 @@ public class RechargedBlockModels extends BlockStateProvider {
 	@Override
 	protected void registerStatesAndModels() {
 		getVariantBuilder(RechargedBlocks.INJECTOR.get()).forAllStates(state -> {
-			return ConfiguredModel.builder()
+			return ConfiguredModel
+				.builder()
 				.modelFile(models().getExistingFile(modLoc("block/injector")))
 				.rotationY((int)state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot())
 				.build();
@@ -32,7 +33,8 @@ public class RechargedBlockModels extends BlockStateProvider {
 				? "top"
 				: "top_on";
 
-			return ConfiguredModel.builder()
+			return ConfiguredModel
+				.builder()
 				.modelFile(models()
 					.withExistingParent(name, mcLoc("cube_bottom_top"))
 					.texture("side", modLoc("block/high_speed_cable_side"))
@@ -66,7 +68,8 @@ public class RechargedBlockModels extends BlockStateProvider {
 					: "denier_both";
 			}
 
-			return ConfiguredModel.builder()
+			return ConfiguredModel
+				.builder()
 				.modelFile(models()
 					.withExistingParent(name, modLoc("denier_base"))
 					.texture("top", modLoc("block/" + name))
@@ -84,7 +87,8 @@ public class RechargedBlockModels extends BlockStateProvider {
 				name += "_on";
 			}
 
-			return ConfiguredModel.builder()
+			return ConfiguredModel
+				.builder()
 				.modelFile(models()
 					.withExistingParent(name, modLoc("resistor_base"))
 					.texture("torch", mcLoc("block/redstone_torch" + (powered ? "" : "_off")))
@@ -96,7 +100,8 @@ public class RechargedBlockModels extends BlockStateProvider {
 		getVariantBuilder(RechargedBlocks.LATCH.get()).forAllStatesExcept(state -> {
 			var powered = state.getValue(BlockStateProperties.POWERED);
 
-			return ConfiguredModel.builder()
+			return ConfiguredModel
+				.builder()
 				.modelFile(models()
 					.withExistingParent(powered ? "latch_on" : "latch", modLoc("latch_base"))
 					.texture("torch", mcLoc("block/redstone_torch" + (powered ? "" : "_off")))
@@ -111,13 +116,43 @@ public class RechargedBlockModels extends BlockStateProvider {
 		getVariantBuilder(RechargedBlocks.PRISM.get()).forAllStates(state -> {
 			var name = "prism_" + String.valueOf(state.getValue(BlockStateProperties.POWER));
 
-			return ConfiguredModel.builder()
+			return ConfiguredModel
+				.builder()
 				.modelFile(models()
 					.withExistingParent(name, mcLoc("cube_all"))
 					.texture("all", modLoc("block/" + name))
 				)
 				.build();
 		});
+
+		getVariantBuilder(RechargedBlocks.GLOW_TORCH.get()).forAllStatesExcept(state -> {
+			return ConfiguredModel
+				.builder()
+				.modelFile(models()
+					.withExistingParent("glow_torch", mcLoc("block/template_torch"))
+					.texture("torch", modLoc("block/glow_torch"))
+					.renderType("cutout")
+				)
+				.build();
+		}, BlockStateProperties.WATERLOGGED);
+
+		getVariantBuilder(RechargedBlocks.GLOW_WALL_TORCH.get()).forAllStatesExcept(state -> {
+			return ConfiguredModel
+				.builder()
+				.modelFile(models()
+					.withExistingParent("glow_torch_wall", mcLoc("block/template_torch_wall"))
+					.texture("torch", modLoc("block/glow_torch"))
+					.renderType("cutout")
+				)
+				.rotationY(switch (state.getValue(BlockStateProperties.HORIZONTAL_FACING)) {
+					case EAST -> 0;
+					case SOUTH -> 90;
+					case WEST -> 180;
+					case NORTH -> 270;
+					default -> 0;
+				})
+				.build();
+		}, BlockStateProperties.WATERLOGGED);
 
 		final var obsidian = mcLoc("block/obsidian");
 		stairsBlock(RechargedBlocks.OBSIDIAN_STAIRS.get(), obsidian);

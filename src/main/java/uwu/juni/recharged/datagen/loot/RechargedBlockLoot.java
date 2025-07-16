@@ -35,6 +35,7 @@ public class RechargedBlockLoot extends BlockLootSubProvider {
 		dropSelf(RechargedBlocks.OBSIDIAN_STAIRS);
 		dropSelf(RechargedBlocks.OBSIDIAN_SLAB);
 		dropSelf(RechargedBlocks.OBSIDIAN_WALL);
+		dropSelf(RechargedBlocks.GLOW_TORCH);
 	}
 
 	void dropSelf(DeferredBlock<?> b) {
