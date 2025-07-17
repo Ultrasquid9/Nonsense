@@ -9,6 +9,7 @@ import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.WallBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockBehaviour.StatePredicate;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import uwu.juni.recharged.Recharged;
@@ -19,6 +20,7 @@ import uwu.juni.recharged.content.blocks.HighSpeedCableBlock;
 import uwu.juni.recharged.content.blocks.InjectorBlock;
 import uwu.juni.recharged.content.blocks.LatchBlock;
 import uwu.juni.recharged.content.blocks.PrismBlock;
+import uwu.juni.recharged.content.blocks.RedstoneLanternBlock;
 import uwu.juni.recharged.content.blocks.ResistorBlock;
 
 public class RechargedBlocks {
@@ -78,6 +80,16 @@ public class RechargedBlocks {
 				.ofFullCopy(Blocks.SEA_LANTERN)
 				.isRedstoneConductor(falsePredicate())
 				.lightLevel(PrismBlock::getLightLevel)
+		)
+	);
+
+	public static final DeferredBlock<?> REDSTONE_LANTERN = registerBlockAndItem(
+		"redstone_lantern",
+		() -> new RedstoneLanternBlock(
+			BlockBehaviour
+				.Properties
+				.ofFullCopy(Blocks.LANTERN)
+				.lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 7 : 0)
 		)
 	);
 

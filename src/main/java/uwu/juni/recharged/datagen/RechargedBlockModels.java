@@ -154,6 +154,25 @@ public class RechargedBlockModels extends BlockStateProvider {
 				.build();
 		}, BlockStateProperties.WATERLOGGED);
 
+		getVariantBuilder(RechargedBlocks.REDSTONE_LANTERN.get()).forAllStatesExcept(state -> {
+			var lantern = state.getValue(BlockStateProperties.HANGING) 
+				? "hanging_lantern"
+				: "lantern";
+
+			var off = state.getValue(BlockStateProperties.LIT)
+				? ""
+				: "_off";
+			
+			return ConfiguredModel
+				.builder()
+				.modelFile(models()
+					.withExistingParent("redstone_" + lantern + off, mcLoc("block/template_" + lantern))
+					.texture("lantern", modLoc("block/redstone_lantern" + off))
+					.renderType("cutout")
+				)
+				.build();
+		}, BlockStateProperties.WATERLOGGED);
+
 		final var obsidian = mcLoc("block/obsidian");
 		stairsBlock(RechargedBlocks.OBSIDIAN_STAIRS.get(), obsidian);
 		slabBlock(RechargedBlocks.OBSIDIAN_SLAB.get(), obsidian, obsidian);

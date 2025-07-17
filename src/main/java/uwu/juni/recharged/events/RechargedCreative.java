@@ -30,7 +30,11 @@ public class RechargedCreative {
 			.tab(CreativeModeTabs.FUNCTIONAL_BLOCKS)
 			.after(Items.SOUL_TORCH)
 			.insert(RechargedItems.GLOW_TORCH)
+			.after(Items.SOUL_LANTERN)
+			.insert(RechargedBlocks.REDSTONE_LANTERN)
 			.tab(CreativeModeTabs.REDSTONE_BLOCKS)
+			.after(Items.REDSTONE_TORCH)
+			.insert(RechargedBlocks.REDSTONE_LANTERN)
 			.after(Items.TARGET)
 			.insert(
 				RechargedBlocks.HIGH_SPEED_CABLE,

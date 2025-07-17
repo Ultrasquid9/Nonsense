@@ -26,16 +26,25 @@ public class RechargedBlockLoot extends BlockLootSubProvider {
 
 	@Override
 	protected void generate() {
-		dropSelf(RechargedBlocks.INJECTOR);
-		dropSelf(RechargedBlocks.HIGH_SPEED_CABLE);
-		dropSelf(RechargedBlocks.DENIER);
-		dropSelf(RechargedBlocks.RESISTOR);
-		dropSelf(RechargedBlocks.LATCH);
-		dropSelf(RechargedBlocks.PRISM);
-		dropSelf(RechargedBlocks.OBSIDIAN_STAIRS);
-		dropSelf(RechargedBlocks.OBSIDIAN_SLAB);
-		dropSelf(RechargedBlocks.OBSIDIAN_WALL);
-		dropSelf(RechargedBlocks.GLOW_TORCH);
+		dropSelf(
+			RechargedBlocks.INJECTOR,
+			RechargedBlocks.HIGH_SPEED_CABLE,
+			RechargedBlocks.DENIER,
+			RechargedBlocks.RESISTOR,
+			RechargedBlocks.LATCH,
+			RechargedBlocks.PRISM,
+			RechargedBlocks.OBSIDIAN_STAIRS,
+			RechargedBlocks.OBSIDIAN_SLAB,
+			RechargedBlocks.OBSIDIAN_WALL,
+			RechargedBlocks.GLOW_TORCH,
+			RechargedBlocks.REDSTONE_LANTERN
+		);
+	}
+
+	void dropSelf(DeferredBlock<?>... blocks) {
+		for (var block : blocks) {
+			dropSelf(block);
+		}
 	}
 
 	void dropSelf(DeferredBlock<?> b) {
