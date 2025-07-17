@@ -35,7 +35,10 @@ public class RechargedBlockTags extends BlockTagsProvider {
 
 			RechargedBlocks.OBSIDIAN_STAIRS.get(),
 			RechargedBlocks.OBSIDIAN_SLAB.get(),
-			RechargedBlocks.OBSIDIAN_WALL.get()
+			RechargedBlocks.OBSIDIAN_WALL.get(),
+
+			RechargedBlocks.REDSTONE_LANTERN.get(),
+			RechargedBlocks.GLOW_LANTERN.get()
 		);
 		tag(BlockTags.NEEDS_STONE_TOOL).add(
 			RechargedBlocks.INJECTOR.get(),

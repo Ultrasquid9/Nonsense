@@ -25,7 +25,8 @@ public class RechargedItemModels extends ItemModelProvider {
 			RechargedBlocks.INJECTOR,
 			RechargedBlocks.DENIER,
 			RechargedBlocks.RESISTOR,
-			RechargedBlocks.REDSTONE_LANTERN
+			RechargedBlocks.REDSTONE_LANTERN,
+			RechargedBlocks.GLOW_LANTERN
 		);
 
 		simpleBlockItems(

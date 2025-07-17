@@ -1,0 +1,10 @@
+{
+	"variants": {
+		"hanging=false": {
+			"model": "recharged:block/glow_lantern"
+		},
+		"hanging=true": {
+			"model": "recharged:block/glow_hanging_lantern"
+		}
+	}
+}

@@ -31,7 +31,10 @@ public class RechargedCreative {
 			.after(Items.SOUL_TORCH)
 			.insert(RechargedItems.GLOW_TORCH)
 			.after(Items.SOUL_LANTERN)
-			.insert(RechargedBlocks.REDSTONE_LANTERN)
+			.insert(
+				RechargedBlocks.GLOW_LANTERN,
+				RechargedBlocks.REDSTONE_LANTERN
+			)
 			.tab(CreativeModeTabs.REDSTONE_BLOCKS)
 			.after(Items.REDSTONE_TORCH)
 			.insert(RechargedBlocks.REDSTONE_LANTERN)

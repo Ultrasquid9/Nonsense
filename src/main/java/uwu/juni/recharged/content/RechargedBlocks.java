@@ -4,6 +4,7 @@ import java.util.function.Supplier;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.SlabBlock;
 import net.minecraft.world.level.block.StairBlock;
 import net.minecraft.world.level.block.WallBlock;
@@ -83,16 +84,6 @@ public class RechargedBlocks {
 		)
 	);
 
-	public static final DeferredBlock<?> REDSTONE_LANTERN = registerBlockAndItem(
-		"redstone_lantern",
-		() -> new RedstoneLanternBlock(
-			BlockBehaviour
-				.Properties
-				.ofFullCopy(Blocks.LANTERN)
-				.lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 7 : 0)
-		)
-	);
-
 	public static final DeferredBlock<StairBlock> OBSIDIAN_STAIRS = registerBlockAndItem(
 		"obsidian_stairs",
 		() -> new StairBlock(
@@ -112,6 +103,26 @@ public class RechargedBlocks {
 		"obsidian_wall",
 		() -> new WallBlock(
 			BlockBehaviour.Properties.ofFullCopy(Blocks.OBSIDIAN)
+		)
+	);
+
+	public static final DeferredBlock<?> REDSTONE_LANTERN = registerBlockAndItem(
+		"redstone_lantern",
+		() -> new RedstoneLanternBlock(
+			BlockBehaviour
+				.Properties
+				.ofFullCopy(Blocks.LANTERN)
+				.lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 7 : 0)
+		)
+	);
+
+	public static final DeferredBlock<?> GLOW_LANTERN = registerBlockAndItem(
+		"glow_lantern",
+		() -> new LanternBlock(
+			BlockBehaviour
+				.Properties
+				.ofFullCopy(Blocks.LANTERN)
+				.lightLevel(a -> 12)
 		)
 	);
 

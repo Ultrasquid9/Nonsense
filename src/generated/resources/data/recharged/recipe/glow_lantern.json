@@ -1,0 +1,21 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "redstone",
+	"key": {
+		"I": {
+			"item": "minecraft:iron_nugget"
+		},
+		"T": {
+			"item": "recharged:glow_torch"
+		}
+	},
+	"pattern": [
+		"III",
+		"ITI",
+		"III"
+	],
+	"result": {
+		"count": 1,
+		"id": "recharged:glow_lantern"
+	}
+}

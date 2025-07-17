@@ -36,8 +36,9 @@ public class RechargedBlockLoot extends BlockLootSubProvider {
 			RechargedBlocks.OBSIDIAN_STAIRS,
 			RechargedBlocks.OBSIDIAN_SLAB,
 			RechargedBlocks.OBSIDIAN_WALL,
-			RechargedBlocks.GLOW_TORCH,
-			RechargedBlocks.REDSTONE_LANTERN
+			RechargedBlocks.REDSTONE_LANTERN,
+			RechargedBlocks.GLOW_LANTERN,
+			RechargedBlocks.GLOW_TORCH
 		);
 	}
 

@@ -154,6 +154,21 @@ public class RechargedBlockModels extends BlockStateProvider {
 				.build();
 		}, BlockStateProperties.WATERLOGGED);
 
+		getVariantBuilder(RechargedBlocks.GLOW_LANTERN.get()).forAllStatesExcept(state -> {
+			var lantern = state.getValue(BlockStateProperties.HANGING) 
+				? "hanging_lantern"
+				: "lantern";
+			
+			return ConfiguredModel
+				.builder()
+				.modelFile(models()
+					.withExistingParent("glow_" + lantern, mcLoc("block/template_" + lantern))
+					.texture("lantern", modLoc("block/glow_lantern"))
+					.renderType("cutout")
+				)
+				.build();
+		}, BlockStateProperties.WATERLOGGED);
+
 		getVariantBuilder(RechargedBlocks.REDSTONE_LANTERN.get()).forAllStatesExcept(state -> {
 			var lantern = state.getValue(BlockStateProperties.HANGING) 
 				? "hanging_lantern"

@@ -6,6 +6,8 @@
 		"recharged:prism",
 		"recharged:obsidian_stairs",
 		"recharged:obsidian_slab",
-		"recharged:obsidian_wall"
+		"recharged:obsidian_wall",
+		"recharged:redstone_lantern",
+		"recharged:glow_lantern"
 	]
 }

@@ -86,6 +86,15 @@ public class RechargedRecipes extends RecipeProvider {
 			.unlockedBy(getHasName(Items.REDSTONE_TORCH), has(Items.REDSTONE_TORCH))
 			.save(output);
 
+		ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, RechargedBlocks.GLOW_LANTERN, 1)
+			.define('I', Items.IRON_NUGGET)
+			.define('T', RechargedItems.GLOW_TORCH)
+			.pattern("III")
+			.pattern("ITI")
+			.pattern("III")
+			.unlockedBy(getHasName(RechargedItems.GLOW_TORCH), has(RechargedItems.GLOW_TORCH))
+			.save(output);
+
 		ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, RechargedBlocks.PRISM, 1)
 			.define('C', RechargedItems.COPPER_COIL)
 			.define('P', Items.PRISMARINE_CRYSTALS)
