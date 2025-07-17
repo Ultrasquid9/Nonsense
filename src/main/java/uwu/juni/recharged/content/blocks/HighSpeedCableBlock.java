@@ -98,11 +98,17 @@ public class HighSpeedCableBlock extends DirectionalBlock {
 		BlockPos pos,
 		RandomSource random
 	) {
-		level.setBlock(
-			pos,
-			state.setValue(POWERED, this.isPowered(level, pos, state)),
-			3
-		);
+		var dir = state.getValue(FACING);
+		var powered = this.isPowered(level, pos, state);
+
+		if (powered != state.getValue(POWERED)) {
+			level.setBlock(
+				pos,
+				state.setValue(POWERED, powered),
+				3
+			);
+			level.updateNeighborsAt(pos.relative(dir), this);
+		}
 	}
 
 	boolean isPowered(Level level, BlockPos pos, BlockState state) {
