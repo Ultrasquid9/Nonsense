@@ -12,6 +12,7 @@ import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.level.ItemLike;
 import uwu.juni.recharged.content.RechargedBlocks;
 import uwu.juni.recharged.content.RechargedItems;
 
@@ -23,6 +24,11 @@ public class RechargedRecipes extends RecipeProvider {
 
 	@Override
 	protected void buildRecipes(RecipeOutput output) {
+		modRecipes(output);
+		vanillaRecipes(output);
+	}
+
+	void modRecipes(RecipeOutput output) {
 		ShapelessRecipeBuilder.shapeless(RecipeCategory.REDSTONE, RechargedItems.COPPER_COIL, 3)
 			.requires(Items.REDSTONE)
 			.requires(Items.STICK)
@@ -131,6 +137,43 @@ public class RechargedRecipes extends RecipeProvider {
 			.pattern("G")
 			.pattern("S")
 			.unlockedBy(getHasName(Items.GLOW_INK_SAC), has(Items.GLOW_INK_SAC))
+			.save(output);
+	}
+
+	void vanillaRecipes(RecipeOutput output) {
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.BUILDING_BLOCKS, Items.GILDED_BLACKSTONE)
+			.requires(Items.BLACKSTONE)
+			.requires(Items.GOLD_INGOT)
+			.unlockedBy(getHasName(Items.BLACKSTONE), has(Items.BLACKSTONE))
+			.save(output);
+
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.NAME_TAG)
+			.requires(Items.IRON_NUGGET)
+			.requires(Items.INK_SAC)
+			.requires(Items.PAPER)
+			.unlockedBy(getHasName(Items.PAPER), has(Items.PAPER))
+			.save(output);
+		
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Items.SADDLE, 1)
+			.define('X', Items.LEATHER)
+			.define('#', Items.IRON_INGOT)
+			.pattern(" X ")
+			.pattern("X#X")
+			.unlockedBy(getHasName(Items.LEATHER), has(Items.LEATHER))
+			.save(output);
+
+		horseArmor(Items.IRON_HORSE_ARMOR, Items.IRON_INGOT, output);
+		horseArmor(Items.GOLDEN_HORSE_ARMOR, Items.GOLD_INGOT, output);
+		horseArmor(Items.DIAMOND_HORSE_ARMOR, Items.DIAMOND, output);
+	}
+
+	void horseArmor(ItemLike armor, ItemLike material, RecipeOutput output) {
+		ShapedRecipeBuilder.shaped(RecipeCategory.MISC, armor, 1)
+			.define('X', material)
+			.pattern("X X")
+			.pattern("XXX")
+			.pattern("X X")
+			.unlockedBy(getHasName(material), has(material))
 			.save(output);
 	}
 }
