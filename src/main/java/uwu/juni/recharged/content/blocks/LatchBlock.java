@@ -7,10 +7,13 @@ import com.mojang.serialization.MapCodec;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DiodeBlock;
 import net.minecraft.world.level.block.EntityBlock;
@@ -66,9 +69,56 @@ public class LatchBlock extends DiodeBlock implements EntityBlock {
 	}
 
 	@Override
+	protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+		return true;
+	}
+
+	@Override
+	protected boolean shouldTurnOn(Level level, BlockPos pos, BlockState state) {
+		var signal = this.getInputSignal(level, pos, state);
+
+		if (level.getBlockEntity(pos) instanceof LatchBlockEntity latch) {
+			signal |= latch.getOutputSignal();
+		}
+
+		return signal != 0;
+	}
+
+	@Override
+	protected void neighborChanged(
+		BlockState state,
+		Level level,
+		BlockPos pos,
+		Block block,
+		BlockPos fromPos,
+		boolean isMoving
+	) {
+		if (this.getReleaseSignal(level, pos, state) > 0) {
+			level.scheduleTick(pos, this, this.getDelay(state));
+		}
+
+		super.neighborChanged(state, level, pos, block, fromPos, isMoving);
+	}
+
+	@Override
+	protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+		this.updateLatch(level, pos, state);
+		super.tick(state, level, pos, random);
+	}
+
+	@Override
 	protected int getInputSignal(Level level, BlockPos pos, BlockState state) {
-		var dir = state.getValue(FACING).getCounterClockWise();
-		var release = level.getSignal(pos.relative(dir), dir);
+		var input = super.getInputSignal(level, pos, state);
+
+		if (level.getBlockEntity(pos) instanceof LatchBlockEntity latch) {
+			input = Math.max(input, latch.getOutputSignal());
+		}
+		
+		return input;
+	}
+	
+	void updateLatch(Level level, BlockPos pos, BlockState state) {
+		var release = this.getReleaseSignal(level, pos, state);
 		var input = super.getInputSignal(level, pos, state);
 
 		if (level.getBlockEntity(pos) instanceof LatchBlockEntity latch) {
@@ -84,10 +134,14 @@ public class LatchBlock extends DiodeBlock implements EntityBlock {
 			}
 
 			this.updateNeighborsInFront(level, pos, state);
-			return latch.getOutputSignal();
 		}
+	}
 
-		return 0;
+	protected int getReleaseSignal(Level level, BlockPos pos, BlockState state) {
+		var dir = state.getValue(FACING).getCounterClockWise();
+		var release = level.getSignal(pos.relative(dir), dir);
+		
+		return release;
 	}
 
 	@Override
@@ -101,6 +155,10 @@ public class LatchBlock extends DiodeBlock implements EntityBlock {
 
 	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext context) {
+		if (!super.canSurvive(this.defaultBlockState(), context.getLevel(), context.getClickedPos())) {
+			return null;
+		}
+
 		var fluidstate = context.getLevel().getFluidState(context.getClickedPos());
 		var flag = fluidstate.getType() == Fluids.WATER;
 		return super.getStateForPlacement(context).setValue(BlockStateProperties.WATERLOGGED, flag);
