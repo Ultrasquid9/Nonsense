@@ -4,8 +4,8 @@
 	"compatibilityLevel": "JAVA_21",
 	"refmap": "recharged.refmap.json",
 	"mixins": [
+		"waterlog.WaterlogButtons",
 		"waterlog.WaterlogComparators",
-		"waterlog.WaterlogDust",
 		"waterlog.WaterlogLevers",
 		"waterlog.WaterlogRepeaters",
 		"CarpetDupeFix",

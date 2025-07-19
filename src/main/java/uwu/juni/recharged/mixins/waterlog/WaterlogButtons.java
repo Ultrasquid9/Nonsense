@@ -15,20 +15,21 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.RedStoneWireBlock;
+import net.minecraft.world.level.block.ButtonBlock;
+import net.minecraft.world.level.block.FaceAttachedHorizontalDirectionalBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.FluidState;
 import net.minecraft.world.level.material.Fluids;
 
-@Mixin(RedStoneWireBlock.class)
+@Mixin(ButtonBlock.class)
 @ParametersAreNonnullByDefault
-public abstract class WaterlogDust extends Block implements SimpleWaterloggedBlock {
-	private WaterlogDust() {
+public abstract class WaterlogButtons extends FaceAttachedHorizontalDirectionalBlock implements SimpleWaterloggedBlock {
+	private WaterlogButtons() {
 		super(null);
 	}
 
@@ -39,7 +40,12 @@ public abstract class WaterlogDust extends Block implements SimpleWaterloggedBlo
 	}
 
 	@Inject(method = "<init>", at = @At("TAIL"))
-	private void Recharged_SetWaterlogDefaultState(BlockBehaviour.Properties properties, CallbackInfo ci) {
+	private void Recharged_SetWaterlogDefaultState(
+		BlockSetType type,
+		int ticks,
+		BlockBehaviour.Properties properties,
+		CallbackInfo ci
+	) {
 		this.registerDefaultState(this.defaultBlockState().setValue(BlockStateProperties.WATERLOGGED, Boolean.FALSE));
 	}
 
@@ -53,16 +59,10 @@ public abstract class WaterlogDust extends Block implements SimpleWaterloggedBlo
 		BlockPos neighborPos,
 		Operation<BlockState> og
 	) {
-		var flag = state.getValue(BlockStateProperties.WATERLOGGED);
-		
-		if (flag) {
+		if (state.getValue(BlockStateProperties.WATERLOGGED)) {
 			level.scheduleTick(pos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
 		}
-
-		var newState = og.call(state, dir, neighborState, level, pos, neighborPos);
-		return newState.is(Blocks.REDSTONE_WIRE)
-			? newState.setValue(BlockStateProperties.WATERLOGGED, flag)
-			: newState;
+		return og.call(state, dir, neighborState, level, pos, neighborPos);
 	}
 
 	@Override
@@ -73,10 +73,14 @@ public abstract class WaterlogDust extends Block implements SimpleWaterloggedBlo
 	}
 
 
-	@WrapMethod(method = "getStateForPlacement")
-	private BlockState Recharged_getShouldBeWaterlogged(BlockPlaceContext context, Operation<BlockState> og) {
+	@Override
+	public BlockState getStateForPlacement(BlockPlaceContext context) {
 		var fluidstate = context.getLevel().getFluidState(context.getClickedPos());
 		var flag = fluidstate.getType() == Fluids.WATER;
-		return og.call(context).setValue(BlockStateProperties.WATERLOGGED, flag);
+
+		var state = super.getStateForPlacement(context);
+		return state != null
+			? state.setValue(BlockStateProperties.WATERLOGGED, flag)
+			: null;
 	}
 }
