@@ -11,6 +11,7 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.LanternBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
@@ -98,10 +99,37 @@ public class RedstoneLanternBlock extends LanternBlock {
 	protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
 		boolean flag = this.hasNeighborSignal(level, pos, state);
 
+		if (this.chainPowered(level, pos)) {
+			level.setBlock(pos, state.setValue(LIT, false), 3);
+			return;
+		}
+
 		if (state.getValue(LIT) && flag) {
 			level.setBlock(pos, state.setValue(LIT, Boolean.FALSE), 3);
 		} else if (!flag) {
 			level.setBlock(pos, state.setValue(LIT, Boolean.TRUE), 3);
 		}
+	}
+
+	boolean chainPowered(ServerLevel level, BlockPos pos) {
+		var blockpos = pos;
+		BlockState state;
+
+		for (var i = 0; i < 15; i++) {
+			blockpos = blockpos.above();
+			state = level.getBlockState(blockpos);
+
+			if (level.hasSignal(blockpos, Direction.DOWN)) {
+				return true;
+			}
+			if (state.getBlock() != Blocks.CHAIN) {
+				return false;
+			}
+			if (state.getValue(BlockStateProperties.AXIS) != Direction.Axis.Y) {
+				return false;
+			}
+		}
+
+		return false;
 	}
 }
