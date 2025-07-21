@@ -22,6 +22,7 @@ public class RechargedItemModels extends ItemModelProvider {
 	protected void registerModels() {
 		basicItems(
 			RechargedItems.COPPER_COIL,
+			RechargedItems.SATA_ANDAGI,
 			RechargedBlocks.INJECTOR,
 			RechargedBlocks.DENIER,
 			RechargedBlocks.RESISTOR,

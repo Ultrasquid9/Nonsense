@@ -58,6 +58,9 @@ public class RechargedCreative {
 				RechargedBlocks.OBSIDIAN_SLAB,
 				RechargedBlocks.OBSIDIAN_WALL
 			)
+			.tab(CreativeModeTabs.FOOD_AND_DRINKS)
+			.after(Items.PUMPKIN_PIE)
+			.insert(RechargedItems.SATA_ANDAGI)
 			.tab(CreativeModeTabs.INGREDIENTS)
 			.after(Items.NETHERITE_INGOT)
 			.insert(RechargedItems.COPPER_COIL);

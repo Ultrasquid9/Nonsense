@@ -138,6 +138,13 @@ public class RechargedRecipes extends RecipeProvider {
 			.pattern("S")
 			.unlockedBy(getHasName(Items.GLOW_INK_SAC), has(Items.GLOW_INK_SAC))
 			.save(output);
+
+		ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, RechargedItems.SATA_ANDAGI, 2)
+			.requires(Items.EGG)
+			.requires(Items.WHEAT)
+			.requires(Items.SUGAR)
+			.unlockedBy(getHasName(Items.WHEAT), has(Items.WHEAT))
+			.save(output);
 	}
 
 	void vanillaRecipes(RecipeOutput output) {

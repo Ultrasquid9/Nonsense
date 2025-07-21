@@ -1,6 +1,7 @@
 package uwu.juni.recharged.content;
 
 import net.minecraft.core.Direction;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -19,6 +20,19 @@ public class RechargedItems {
 			RechargedBlocks.GLOW_WALL_TORCH.get(),
 			new Item.Properties(),
 			Direction.DOWN
+		)
+	);
+
+	public static final DeferredItem<?> SATA_ANDAGI = REGISTER.register(
+		"sata_andagi",
+		() -> new Item(new Item
+			.Properties()
+			.food(new FoodProperties
+				.Builder()
+				.nutrition(4)
+				.saturationModifier(0.6F)
+				.build()
+			)
 		)
 	);
 }
