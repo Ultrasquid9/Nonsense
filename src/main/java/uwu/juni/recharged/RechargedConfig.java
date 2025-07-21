@@ -18,6 +18,10 @@ public class RechargedConfig {
 		.comment(" Whether redstone wire update order should be independant of position")
 		.define("non_positional_redstone", true);
 
+	public static final ModConfigSpec.BooleanValue CHAINSTONE = BUILDER
+		.comment(" Whether chains should be sticky in the axis that they're facing")
+		.define("chainstone", true);
+
 	public static final ModConfigSpec.BooleanValue PISTONS_BREAK_CARPETS = BUILDER
 		.gameRestart()	
 		.comment(" Whether or not pistons should be able to break carpets")

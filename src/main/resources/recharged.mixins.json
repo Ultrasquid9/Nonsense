@@ -10,6 +10,8 @@
 		"waterlog.WaterlogRepeaters",
 		"CarpetDupeFix",
 		"ChainRedstoneLantern",
+		"Chainstone",
+		"ChainstonePistonResolver",
 		"CoralAdditions",
 		"DispenserQuasiFix",
 		"PistonBugfixes",
