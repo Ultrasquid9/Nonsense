@@ -28,9 +28,17 @@ public class Chainstone extends RotatedPillarBlock implements SimpleWaterloggedB
 	@Override
 	public boolean canStickTo(BlockState selfState, BlockState otherState, BlockPos selfPos, BlockPos otherPos) {
 		if (selfState.getBlock() != Blocks.CHAIN || otherState.getBlock() != Blocks.CHAIN) {
-			return otherState.canStickTo(selfState);
+			return selfState.canStickTo(otherState) || otherState.canStickTo(selfState);
 		}
 
+		if (checkAxis(selfState, selfPos, otherPos) || checkAxis(otherState, otherPos, selfPos)) {
+			return true;
+		} else {
+			return selfState.canStickTo(otherState) || otherState.canStickTo(selfState);
+		}
+	}
+
+	private boolean checkAxis(BlockState selfState, BlockPos selfPos, BlockPos otherPos) {
 		BlockPos pos1;
 		BlockPos pos2;
 
@@ -50,10 +58,6 @@ public class Chainstone extends RotatedPillarBlock implements SimpleWaterloggedB
 			default -> throw new Error();
 		}
 
-		if (otherPos != pos1 && otherPos != pos2) {
-			return otherState.canStickTo(selfState);
-		}
-
-		return true;
+		return otherPos == pos1 || otherPos == pos2;
 	}
 }
