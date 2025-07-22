@@ -5,7 +5,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import org.spongepowered.asm.mixin.Mixin;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.core.Direction;
 import net.minecraft.world.level.block.ChainBlock;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.SimpleWaterloggedBlock;
@@ -26,38 +26,13 @@ public class Chainstone extends RotatedPillarBlock implements SimpleWaterloggedB
 	}
 
 	@Override
-	public boolean canStickTo(BlockState selfState, BlockState otherState, BlockPos selfPos, BlockPos otherPos) {
-		if (selfState.getBlock() != Blocks.CHAIN || otherState.getBlock() != Blocks.CHAIN) {
-			return selfState.canStickTo(otherState) || otherState.canStickTo(selfState);
-		}
-
-		if (checkAxis(selfState, selfPos, otherPos) || checkAxis(otherState, otherPos, selfPos)) {
-			return true;
-		} else {
-			return selfState.canStickTo(otherState) || otherState.canStickTo(selfState);
-		}
-	}
-
-	private boolean checkAxis(BlockState selfState, BlockPos selfPos, BlockPos otherPos) {
-		BlockPos pos1;
-		BlockPos pos2;
-
-		switch (selfState.getValue(AXIS)) {
-			case X -> {
-				pos1 = selfPos.north();
-				pos2 = selfPos.south();	
-			}
-			case Y -> {
-				pos1 = selfPos.above();
-				pos2 = selfPos.below();
-			}
-			case Z -> {
-				pos1 = selfPos.east();
-				pos2 = selfPos.west();
-			}
-			default -> throw new Error();
-		}
-
-		return otherPos == pos1 || otherPos == pos2;
+	public boolean canStickTo(
+		BlockState selfState,
+		BlockState otherState,
+		BlockPos selfPos,
+		BlockPos otherPos,
+		Direction dir
+	) {
+		return selfState.getValue(AXIS) == dir.getAxis();
 	}
 }

@@ -1,7 +1,6 @@
 package uwu.juni.recharged.mixins;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -64,12 +63,7 @@ public abstract class ChainstonePistonResolver {
 			var pos = fromPos.relative(dir);
 			var state = this.level.getBlockState(pos);
 
-			var opt = checkSmartSticky(state, fromState, pos, fromPos);
-			if (opt.isPresent()) {
-				if (!opt.get() && !this.addBlockLine2(pos, dir)) {
-					return false;
-				}
-			} else if (state.canStickTo(fromState) && fromState.canStickTo(state) && !this.addBlockLine2(pos, dir)) {
+			if (stickToEachOther(state, fromState, pos, fromPos, dir) && !this.addBlockLine2(pos, dir)) {
 				return false;
 			}
 		}
@@ -105,18 +99,9 @@ public abstract class ChainstonePistonResolver {
 			oldState = state;
 			state = this.level.getBlockState(pos);
 
-			boolean flag;
-			var opt = this.checkSmartSticky(state, oldState, pos, oldPos);
-
-			if (opt.isPresent()) {
-				flag = opt.get();
-			} else {
-				flag = oldState.canStickTo(state) && state.canStickTo(oldState);
-			}
-
 			if (
 				state.isAir()
-				|| !flag
+				|| !stickToEachOther(state, oldState, pos, oldPos, this.getPushDirection().getOpposite())
 				|| !PistonBaseBlock.isPushable(state, this.level, pos, this.getPushDirection(), false, this.getPushDirection().getOpposite())
 				|| pos.equals(this.pistonPos)
 			) {
@@ -180,19 +165,28 @@ public abstract class ChainstonePistonResolver {
 		}
 	}
 
-	private Optional<Boolean> checkSmartSticky(BlockState selfState, BlockState otherState, BlockPos selfPos, BlockPos otherPos) {
-			if (selfState.getBlock() instanceof SmartSticky sticky) {
-				return Optional.of(
-					sticky.canStickTo(selfState, otherState, selfPos, otherPos)
-					&& sticky.canStickTo(otherState, selfState, otherPos, selfPos)
-				);
-			} else if (otherState.getBlock() instanceof SmartSticky sticky) {
-				return Optional.of(
-					sticky.canStickTo(selfState, otherState, selfPos, otherPos)
-					&& sticky.canStickTo(otherState, selfState, otherPos, selfPos)
-				);
-			}
+	private boolean stickToEachOther(
+		BlockState selfState,
+		BlockState otherState,
+		BlockPos selfPos,
+		BlockPos otherPos,
+		Direction dir
+	) {
+		var selfFlag = maybeSmartSticksTo(selfState, otherState, selfPos, otherPos, dir);
+		var otherFlag = maybeSmartSticksTo(otherState, selfState, otherPos, selfPos, dir);
 
-		return Optional.empty();
+		return selfFlag && otherFlag;
+	}
+
+	private boolean maybeSmartSticksTo(
+		BlockState selfState,
+		BlockState otherState,
+		BlockPos selfPos,
+		BlockPos otherPos,
+		Direction dir
+	) {
+		return selfState.getBlock() instanceof SmartSticky sticky
+			? sticky.canStickTo(selfState, otherState, selfPos, otherPos, dir)
+			: selfState.canStickTo(otherState);
 	}
 }
