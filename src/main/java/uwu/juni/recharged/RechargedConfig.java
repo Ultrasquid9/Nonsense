@@ -23,7 +23,6 @@ public class RechargedConfig {
 		.define("chainstone", true);
 
 	public static final ModConfigSpec.BooleanValue PISTONS_BREAK_CARPETS = BUILDER
-		.gameRestart()	
 		.comment(" Whether or not pistons should be able to break carpets")
 		.define("pistons_break_carpets", true);
 

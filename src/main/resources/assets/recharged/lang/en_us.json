@@ -19,5 +19,6 @@
 	"recharged.configuration.disable_quasi_connectivity": "Disable Quasi Connectivity",
 	"recharged.configuration.non_positional_redstone": "Non-Positional Redstone",
 	"recharged.configuration.pistons_break_carpets": "Pistons Break Carpets",
-	"recharged.configuration.fix_portal_break": "Fix Methods To Break Portals"
+	"recharged.configuration.fix_portal_break": "Fix Methods To Break Portals",
+	"recharged.configuration.chainstone": "Chainstone"
 }
