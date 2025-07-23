@@ -34,6 +34,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.Tags.Fluids;
 import uwu.juni.recharged.Recharged;
+import uwu.juni.recharged.RechargedConfig;
 import uwu.juni.recharged.datagen.RechargedTags;
 import uwu.juni.recharged.datagen.loot.RechargedMiscLoot;
 
@@ -51,7 +52,7 @@ public abstract class CoralAdditions extends Block implements SimpleWaterloggedB
 
 	@Override
 	protected void randomTick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-		if (!this.isDead(state)) {
+		if (!this.isDead(state) || !RechargedConfig.getConfigValue(RechargedConfig.ERODE_DEAD_CORAL)) {
 			return;
 		}
 
@@ -68,6 +69,10 @@ public abstract class CoralAdditions extends Block implements SimpleWaterloggedB
 
 	@Override
 	public boolean isValidBonemealTarget(LevelReader level, BlockPos pos, BlockState state) {
+		if (!RechargedConfig.getConfigValue(RechargedConfig.BONEMEAL_SMALL_CORAL)) {
+			return false;
+		}
+
 		return state.getValue(BlockStateProperties.WATERLOGGED)
 			&& !this.isDead(state)
 			&& !(state.getBlock() instanceof BaseCoralWallFanBlock);

@@ -26,6 +26,14 @@ public class RechargedConfig {
 		.comment(" Whether or not pistons should be able to break carpets")
 		.define("pistons_break_carpets", true);
 
+	public static final ModConfigSpec.BooleanValue BONEMEAL_SMALL_CORAL = BUILDER
+		.comment(" Whether you should be able to bonemeal small coral into large coral")
+		.define("bonemeal_small_coral", true);
+
+	public static final ModConfigSpec.BooleanValue ERODE_DEAD_CORAL = BUILDER
+		.comment(" Whether dead coral should erode into sand when in flowing water")
+		.define("erode_dead_coral", true);
+
 	public static final ModConfigSpec SPEC = BUILDER.build();
 
 	public static <T> T getConfigValue(ConfigValue<T> value) {

@@ -20,5 +20,7 @@
 	"recharged.configuration.non_positional_redstone": "Non-Positional Redstone",
 	"recharged.configuration.pistons_break_carpets": "Pistons Break Carpets",
 	"recharged.configuration.fix_portal_break": "Fix Methods To Break Portals",
-	"recharged.configuration.chainstone": "Chainstone"
+	"recharged.configuration.chainstone": "Chainstone",
+	"recharged.configuration.bonemeal_small_coral": "Bonemeal Small Coral",
+	"recharged.configuration.erode_dead_coral": "Erode Dead Coral"
 }
