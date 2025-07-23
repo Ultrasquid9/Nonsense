@@ -17,6 +17,7 @@ import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DiodeBlock;
 import net.minecraft.world.level.block.EntityBlock;
+import net.minecraft.world.level.block.SimpleWaterloggedBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
@@ -29,7 +30,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import uwu.juni.recharged.content.blocks.block_entities.LatchBlockEntity;
 
 @ParametersAreNonnullByDefault
-public class LatchBlock extends DiodeBlock implements EntityBlock {
+public class LatchBlock extends DiodeBlock implements EntityBlock, SimpleWaterloggedBlock {
 	public static final MapCodec<LatchBlock> CODEC = simpleCodec(LatchBlock::new);
 	private static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 7, 16);
 	public static final BooleanProperty WATERLOGGED = BlockStateProperties.WATERLOGGED;
@@ -97,13 +98,18 @@ public class LatchBlock extends DiodeBlock implements EntityBlock {
 			level.scheduleTick(pos, this, this.getDelay(state));
 		}
 
-		super.neighborChanged(state, level, pos, block, fromPos, isMoving);
+		this.checkTickOnNeighbor(level, pos, state);
 	}
 
 	@Override
 	protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
 		this.updateLatch(level, pos, state);
-		super.tick(state, level, pos, random);
+
+		var shouldBePowered = this.shouldTurnOn(level, pos, state);
+
+		if (state.getValue(POWERED) != shouldBePowered) {
+			level.setBlock(pos, state.setValue(POWERED, shouldBePowered), UPDATE_ALL);
+		}
 	}
 
 	@Override
@@ -113,17 +119,17 @@ public class LatchBlock extends DiodeBlock implements EntityBlock {
 		if (level.getBlockEntity(pos) instanceof LatchBlockEntity latch) {
 			input = Math.max(input, latch.getOutputSignal());
 		}
-		
+
 		return input;
 	}
-	
+
 	void updateLatch(Level level, BlockPos pos, BlockState state) {
 		var release = this.getReleaseSignal(level, pos, state);
 		var input = super.getInputSignal(level, pos, state);
 
 		if (level.getBlockEntity(pos) instanceof LatchBlockEntity latch) {
 			latch.setHasUb(false);
-			
+
 			if (release > 0 && input > 0) {
 				latch.setHasUb(true);
 				latch.setUbOutputSignal(level.getRandom());
