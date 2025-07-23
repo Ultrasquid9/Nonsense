@@ -52,16 +52,18 @@ public class DenierBlock extends DiodeBlock implements SimpleWaterloggedBlock {
 
 	@Override
 	protected int getInputSignal(Level level, BlockPos pos, BlockState state) {
-		var dir = state.getValue(FACING);
+		var dir1 = state.getValue(FACING);
+		var dir2 = dir1.getClockWise();
+		var dir3 = dir1.getCounterClockWise();
 
-		var dir1 = dir.getClockWise();
-		var signal1 = level.getSignal(pos.relative(dir1), dir1);
-
-		var dir2 = dir.getCounterClockWise();
+		var signal1 = super.getInputSignal(level, pos, state);
 		var signal2 = level.getSignal(pos.relative(dir2), dir2);
+		var signal3 = level.getSignal(pos.relative(dir3), dir3);
 
-		var power = Math.max(signal1, signal2);
-		level.setBlock(pos, state.setValue(POWER, (signal1 > 0) != (signal2 > 0) ? power : 0), 3);
+		var inputCount = (signal1 > 0 ? 1 : 0) + (signal2 > 0 ? 1 : 0) + (signal3 > 0 ? 1 : 0);
+		var power = Math.max(signal1, Math.max(signal2, signal3));
+
+		level.setBlock(pos, state.setValue(POWER, inputCount == 1 ? power : 0), 3);
 		return power;
 	}
 
