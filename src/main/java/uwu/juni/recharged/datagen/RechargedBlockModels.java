@@ -56,6 +56,25 @@ public class RechargedBlockModels extends BlockStateProvider {
 				.build();
 		});
 
+		getVariantBuilder(RechargedBlocks.SHULKER_TENDON.get()).forAllStates(state -> {
+			return ConfiguredModel
+				.builder()
+				.modelFile(models().getExistingFile(modLoc("block/shulker_tendon")))
+				.rotationX(switch(state.getValue(BlockStateProperties.FACING)) {
+					case UP -> 0;
+					case DOWN -> 180;
+					default -> 90;
+				})
+				.rotationY(switch(state.getValue(BlockStateProperties.FACING)) {
+					case NORTH -> 0;
+					case SOUTH -> 180;
+					case EAST -> 90;
+					case WEST -> 270;
+					default -> 0;
+				})
+				.build();
+		});
+
 		getVariantBuilder(RechargedBlocks.DENIER.get()).forAllStatesExcept(state -> {
 			var name = "denier";
 

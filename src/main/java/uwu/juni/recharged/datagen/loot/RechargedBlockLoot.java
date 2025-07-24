@@ -33,6 +33,7 @@ public class RechargedBlockLoot extends BlockLootSubProvider {
 			RechargedBlocks.RESISTOR,
 			RechargedBlocks.LATCH,
 			RechargedBlocks.PRISM,
+			RechargedBlocks.SHULKER_TENDON,
 			RechargedBlocks.OBSIDIAN_STAIRS,
 			RechargedBlocks.OBSIDIAN_SLAB,
 			RechargedBlocks.OBSIDIAN_WALL,

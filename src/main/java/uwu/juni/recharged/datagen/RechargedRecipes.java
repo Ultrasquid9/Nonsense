@@ -110,6 +110,16 @@ public class RechargedRecipes extends RecipeProvider {
 			.unlockedBy(getHasName(Items.PRISMARINE_CRYSTALS), has(Items.PRISMARINE_CRYSTALS))
 			.save(output);
 
+		ShapedRecipeBuilder.shaped(RecipeCategory.REDSTONE, RechargedBlocks.SHULKER_TENDON, 1)
+			.define('S', Items.SHULKER_SHELL)
+			.define('M', Items.PHANTOM_MEMBRANE)
+			.define('D', Items.DRAGON_BREATH)
+			.pattern(" D ")
+			.pattern("SMS")
+			.pattern("SMS")
+			.unlockedBy(getHasName(Items.DRAGON_BREATH), has(Items.DRAGON_BREATH))
+			.save(output);
+
 		ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, RechargedBlocks.OBSIDIAN_STAIRS, 4)
 			.define('O', Items.OBSIDIAN)
 			.pattern("  O")

@@ -1,0 +1,24 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"category": "redstone",
+	"key": {
+		"D": {
+			"item": "minecraft:dragon_breath"
+		},
+		"M": {
+			"item": "minecraft:phantom_membrane"
+		},
+		"S": {
+			"item": "minecraft:shulker_shell"
+		}
+	},
+	"pattern": [
+		" D ",
+		"SMS",
+		"SMS"
+	],
+	"result": {
+		"count": 1,
+		"id": "recharged:shulker_tendon"
+	}
+}

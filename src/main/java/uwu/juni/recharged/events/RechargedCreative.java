@@ -51,6 +51,8 @@ public class RechargedCreative {
 				RechargedBlocks.RESISTOR,
 				RechargedBlocks.LATCH
 			)
+			.after(Items.HEAVY_WEIGHTED_PRESSURE_PLATE)
+			.insert(RechargedBlocks.SHULKER_TENDON)
 			.after(Items.WHITE_WOOL)
 			.insert(
 				Blocks.OBSIDIAN,

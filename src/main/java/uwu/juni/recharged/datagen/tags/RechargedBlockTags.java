@@ -32,6 +32,7 @@ public class RechargedBlockTags extends BlockTagsProvider {
 			RechargedBlocks.LATCH.get(),
 			RechargedBlocks.HIGH_SPEED_CABLE.get(),
 			RechargedBlocks.PRISM.get(),
+			RechargedBlocks.SHULKER_TENDON.get(),
 
 			RechargedBlocks.OBSIDIAN_STAIRS.get(),
 			RechargedBlocks.OBSIDIAN_SLAB.get(),
@@ -45,6 +46,9 @@ public class RechargedBlockTags extends BlockTagsProvider {
 			RechargedBlocks.LATCH.get(),
 			RechargedBlocks.HIGH_SPEED_CABLE.get(),
 			RechargedBlocks.PRISM.get()
+		);
+		tag(BlockTags.NEEDS_IRON_TOOL).add(
+			RechargedBlocks.SHULKER_TENDON.get()
 		);
 		tag(BlockTags.NEEDS_DIAMOND_TOOL).add(
 			RechargedBlocks.OBSIDIAN_STAIRS.get(),

@@ -23,6 +23,7 @@ import uwu.juni.recharged.content.blocks.LatchBlock;
 import uwu.juni.recharged.content.blocks.PrismBlock;
 import uwu.juni.recharged.content.blocks.RedstoneLanternBlock;
 import uwu.juni.recharged.content.blocks.ResistorBlock;
+import uwu.juni.recharged.content.blocks.ShulkerTendonBlock;
 
 public class RechargedBlocks {
 	public static final DeferredRegister.Blocks REGISTER = DeferredRegister.createBlocks(Recharged.MODID);
@@ -81,6 +82,18 @@ public class RechargedBlocks {
 				.ofFullCopy(Blocks.SEA_LANTERN)
 				.isRedstoneConductor(falsePredicate())
 				.lightLevel(PrismBlock::getLightLevel)
+		)
+	);
+
+	public static final DeferredBlock<?> SHULKER_TENDON = registerBlockAndItem(
+		"shulker_tendon",
+		() -> new ShulkerTendonBlock(
+			BlockBehaviour
+				.Properties
+				.ofFullCopy(Blocks.PURPUR_BLOCK)
+				.isViewBlocking(falsePredicate())
+				.dynamicShape()
+				.noOcclusion()
 		)
 	);
 

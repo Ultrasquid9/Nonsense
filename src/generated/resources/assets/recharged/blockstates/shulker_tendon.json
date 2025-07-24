@@ -1,0 +1,30 @@
+{
+	"variants": {
+		"facing=down": {
+			"model": "recharged:block/shulker_tendon",
+			"x": 180
+		},
+		"facing=east": {
+			"model": "recharged:block/shulker_tendon",
+			"x": 90,
+			"y": 90
+		},
+		"facing=north": {
+			"model": "recharged:block/shulker_tendon",
+			"x": 90
+		},
+		"facing=south": {
+			"model": "recharged:block/shulker_tendon",
+			"x": 90,
+			"y": 180
+		},
+		"facing=up": {
+			"model": "recharged:block/shulker_tendon"
+		},
+		"facing=west": {
+			"model": "recharged:block/shulker_tendon",
+			"x": 90,
+			"y": 270
+		}
+	}
+}
