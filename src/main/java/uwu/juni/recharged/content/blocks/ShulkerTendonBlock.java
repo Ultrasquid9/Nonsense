@@ -108,11 +108,20 @@ public class ShulkerTendonBlock extends DirectionalBlock implements EntityBlock 
 
 		if (targetStrength > 5 || targetStrength < 0 || !level.isInWorldBounds(targetPos)) {
 			return;
-		}	
+		}
 
-		// TODO: make sounds work
-		level.playLocalSound(pos, SoundEvents.SHULKER_TELEPORT, SoundSource.BLOCKS, 5, 1, false);
-
+		level.playSeededSound(
+			null,
+			pos.getX(),
+			pos.getY(),
+			pos.getZ(),
+			SoundEvents.SHULKER_TELEPORT,
+			SoundSource.BLOCKS,
+			1,
+			1,
+			random.nextLong()
+		);
+		
 		level.destroyBlock(targetPos, true);
 		level.setBlock(pos, Blocks.AIR.defaultBlockState(), UPDATE_ALL);
 

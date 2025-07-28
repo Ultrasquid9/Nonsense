@@ -43,7 +43,7 @@ public class ShulkerTendonBlockEntity extends BlockEntity {
 				return;
 			}
 
-			if (--shulkerTendon.cooldown == 0) {
+			if (--shulkerTendon.cooldown <= 0) {
 				level.setBlock(pos, state.setValue(ShulkerTendonBlock.SHUT, Boolean.FALSE), Block.UPDATE_ALL);
 				level.scheduleTick(pos, level.getBlockState(pos).getBlock(), ShulkerTendonBlock.DELAY);
 			}
