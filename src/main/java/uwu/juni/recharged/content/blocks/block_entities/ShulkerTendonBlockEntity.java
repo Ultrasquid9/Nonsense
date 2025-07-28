@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import uwu.juni.recharged.Recharged;
@@ -43,6 +44,7 @@ public class ShulkerTendonBlockEntity extends BlockEntity {
 			}
 
 			if (--shulkerTendon.cooldown == 0) {
+				level.setBlock(pos, state.setValue(ShulkerTendonBlock.SHUT, Boolean.FALSE), Block.UPDATE_ALL);
 				level.scheduleTick(pos, level.getBlockState(pos).getBlock(), ShulkerTendonBlock.DELAY);
 			}
 		} else {

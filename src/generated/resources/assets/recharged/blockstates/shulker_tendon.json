@@ -1,28 +1,54 @@
 {
 	"variants": {
-		"facing=down": {
+		"facing=down,shut=false": {
 			"model": "recharged:block/shulker_tendon",
 			"x": 180
 		},
-		"facing=east": {
+		"facing=down,shut=true": {
+			"model": "recharged:block/shulker_tendon_shut",
+			"x": 180
+		},
+		"facing=east,shut=false": {
 			"model": "recharged:block/shulker_tendon",
 			"x": 90,
 			"y": 90
 		},
-		"facing=north": {
+		"facing=east,shut=true": {
+			"model": "recharged:block/shulker_tendon_shut",
+			"x": 90,
+			"y": 90
+		},
+		"facing=north,shut=false": {
 			"model": "recharged:block/shulker_tendon",
 			"x": 90
 		},
-		"facing=south": {
+		"facing=north,shut=true": {
+			"model": "recharged:block/shulker_tendon_shut",
+			"x": 90
+		},
+		"facing=south,shut=false": {
 			"model": "recharged:block/shulker_tendon",
 			"x": 90,
 			"y": 180
 		},
-		"facing=up": {
+		"facing=south,shut=true": {
+			"model": "recharged:block/shulker_tendon_shut",
+			"x": 90,
+			"y": 180
+		},
+		"facing=up,shut=false": {
 			"model": "recharged:block/shulker_tendon"
 		},
-		"facing=west": {
+		"facing=up,shut=true": {
+			"model": "recharged:block/shulker_tendon_shut"
+		},
+		"facing=west,shut=false": {
 			"model": "recharged:block/shulker_tendon",
+			"x": 90,
+			"y": 270
+		},
+		"facing=west,shut=true": {
+			"model": "recharged:block/shulker_tendon_shut",
 			"x": 90,
 			"y": 270
 		}

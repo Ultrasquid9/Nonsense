@@ -8,6 +8,7 @@ import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import uwu.juni.recharged.Recharged;
 import uwu.juni.recharged.content.RechargedBlocks;
 import uwu.juni.recharged.content.blocks.ResistorBlock;
+import uwu.juni.recharged.content.blocks.ShulkerTendonBlock;
 
 public class RechargedBlockModels extends BlockStateProvider {
 	public RechargedBlockModels(PackOutput output, ExistingFileHelper helper) {
@@ -57,9 +58,11 @@ public class RechargedBlockModels extends BlockStateProvider {
 		});
 
 		getVariantBuilder(RechargedBlocks.SHULKER_TENDON.get()).forAllStates(state -> {
+			var shut = state.getValue(ShulkerTendonBlock.SHUT) ? "_shut" : "";
+
 			return ConfiguredModel
 				.builder()
-				.modelFile(models().getExistingFile(modLoc("block/shulker_tendon")))
+				.modelFile(models().getExistingFile(modLoc("block/shulker_tendon" + shut)))
 				.rotationX(switch(state.getValue(BlockStateProperties.FACING)) {
 					case UP -> 0;
 					case DOWN -> 180;

@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -33,6 +34,7 @@ import uwu.juni.recharged.content.blocks.block_entities.ShulkerTendonBlockEntity
 public class ShulkerTendonBlock extends DirectionalBlock implements EntityBlock {
 	public static final int DELAY = 2;
 	public static final MapCodec<ShulkerTendonBlock> CODEC = simpleCodec(ShulkerTendonBlock::new);
+	public static final BooleanProperty SHUT = BooleanProperty.create("shut");
 
 	@Override
 	protected MapCodec<? extends DirectionalBlock> codec() {
@@ -47,11 +49,12 @@ public class ShulkerTendonBlock extends DirectionalBlock implements EntityBlock 
 
 	public ShulkerTendonBlock(Properties properties) {
 		super(properties);
+		this.registerDefaultState(this.defaultBlockState().setValue(SHUT, Boolean.FALSE));
 	}
 
 	@Override
 	protected void createBlockStateDefinition(Builder<Block, BlockState> builder) {
-		builder.add(FACING);
+		builder.add(FACING, SHUT);
 		super.createBlockStateDefinition(builder);
 	}
 
@@ -90,7 +93,11 @@ public class ShulkerTendonBlock extends DirectionalBlock implements EntityBlock 
 
 	@Override
 	protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
-		if (!level.hasNeighborSignal(pos)) {
+		if (!level.hasNeighborSignal(pos) || state.getValue(SHUT)) {
+			return;
+		}
+
+		if (level.getBlockEntity(pos) instanceof ShulkerTendonBlockEntity be && be.getCooldown() > 0) {
 			return;
 		}
 
@@ -98,10 +105,6 @@ public class ShulkerTendonBlock extends DirectionalBlock implements EntityBlock 
 		var targetPos = pos.relative(facing);
 		var targetState = level.getBlockState(targetPos);
 		var targetStrength = targetState.getDestroySpeed(level, targetPos);
-
-		if (level.getBlockEntity(pos) instanceof ShulkerTendonBlockEntity be && be.getCooldown() > 0) {
-			return;
-		}
 
 		if (targetStrength > 5 || targetStrength < 0 || !level.isInWorldBounds(targetPos)) {
 			return;
@@ -113,7 +116,7 @@ public class ShulkerTendonBlock extends DirectionalBlock implements EntityBlock 
 		level.destroyBlock(targetPos, true);
 		level.setBlock(pos, Blocks.AIR.defaultBlockState(), UPDATE_ALL);
 
-		level.setBlock(targetPos, state, UPDATE_ALL);
+		level.setBlock(targetPos, state.setValue(SHUT, Boolean.valueOf(targetStrength > 0)), UPDATE_ALL);
 		if (level.getBlockEntity(targetPos) instanceof ShulkerTendonBlockEntity be) {
 			be.setCooldown((targetStrength * 8) + 2);
 		} else {
