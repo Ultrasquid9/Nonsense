@@ -11,6 +11,7 @@ import uwu.juni.recharged.Recharged;
 import uwu.juni.recharged.content.blocks.block_entities.InjectorBlockEntity;
 import uwu.juni.recharged.content.blocks.block_entities.LatchBlockEntity;
 import uwu.juni.recharged.content.blocks.block_entities.ResistorBlockEntity;
+import uwu.juni.recharged.content.blocks.block_entities.ShulkerTendonBlockEntity;
 
 public class RechargedBlockEntities {
 	public static final DeferredRegister<BlockEntityType<?>> REGISTER = DeferredRegister.create(
@@ -41,6 +42,15 @@ public class RechargedBlockEntities {
 		() -> BlockEntityType.Builder.of(
 			ResistorBlockEntity::new,
 			RechargedBlocks.RESISTOR.get()
+		)
+		.build(DSL.emptyPartType())
+	);
+
+	public static final Supplier<BlockEntityType<ShulkerTendonBlockEntity>> SHULKER_TENDON = REGISTER.register(
+		"shulker_tendon",
+		() -> BlockEntityType.Builder.of(
+			ShulkerTendonBlockEntity::new,
+			RechargedBlocks.SHULKER_TENDON.get()
 		)
 		.build(DSL.emptyPartType())
 	);
