@@ -1,0 +1,17 @@
+{
+	"profession": "mason",
+	"level": 1,
+	"offer": {
+		"cost_a": {
+			"id": "minecraft:emerald",
+			"count": 1
+		},
+		"result": {
+			"id": "minecraft:cobbled_deepslate",
+			"count": 6
+		},
+		"max_uses": 14,
+		"exp": 3,
+		"multiplier": 0.05
+	}
+}

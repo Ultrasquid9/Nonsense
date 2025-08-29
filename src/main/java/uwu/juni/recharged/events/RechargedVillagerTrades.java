@@ -1,6 +1,5 @@
 package uwu.juni.recharged.events;
 
-import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades.ItemListing;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -14,30 +13,19 @@ import net.neoforged.neoforge.event.village.WandererTradesEvent;
 @EventBusSubscriber
 public class RechargedVillagerTrades {
 	@SubscribeEvent
-	static void villagerTrades(VillagerTradesEvent event) {
-		var trades = event.getTrades();
+	public static void villagerTrades(VillagerTradesEvent event) {
+		final var tradeLookup = event.getRegistryAccess().lookupOrThrow(RechargedDatapacks.VILLAGER_TRADE);
+		final var trades = event.getTrades();
 
-		if (event.getType() == VillagerProfession.MASON) {
-			trades.get(1).add(offer(
-				new ItemCost(Items.EMERALD),
-				new ItemStack(Items.COBBLED_DEEPSLATE, 6),
-				14,
-				3
-			));
+		tradeLookup.listElements().forEach(ref -> {
+			var trade = ref.value();
 
-			trades.get(2).add(offer(
-				new ItemCost(Items.EMERALD),
-				new ItemStack(Items.TUFF, 4),
-				16,
-				5
-			));
-			trades.get(2).add(offer(
-				new ItemCost(Items.EMERALD),
-				new ItemStack(Items.CALCITE, 4),
-				16,
-				5
-			));
-		}
+			if (!event.getType().name().contains(trade.profession())) {
+				return;
+			}
+
+			trades.get(trade.level()).add(trade.toItemListing());
+		});
 	}
 
 	@SubscribeEvent
